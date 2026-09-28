@@ -1,0 +1,8 @@
+{
+  "config": {
+    "default": true,
+    // Long pitches and table rows are intentional.
+    "MD013": false
+  },
+  "ignores": ["node_modules/**", ".git/**"]
+}

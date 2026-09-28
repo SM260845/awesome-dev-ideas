@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "dev-ideas",
+    "title": "Dev Ideas",
+    "scope": "Things you import, embed or apply inside a codebase: libraries, testing, code quality, API and data-layer patterns, frontend engineering, observability and docs."
+  },
+  {
+    "slug": "project-inspiration",
+    "title": "Project Inspiration",
+    "scope": "Ambitious multi-week builds (platforms, engines, AI-native products, civic and science tools) worth a serious portfolio piece or a startup."
+  },
+  {
+    "slug": "fork-suggestions",
+    "title": "Fork Suggestions",
+    "scope": "Real, licensed open-source repos worth forking, each with a specific change: a new niche, a missing feature, a port or a revival."
+  },
+  {
+    "slug": "ai-agents-mcp",
+    "title": "AI, Agents & MCP",
+    "scope": "Agent harnesses, MCP servers, skills, memory, evals, local models and RAG. AI security lives in Security & Privacy."
+  },
+  {
+    "slug": "developer-tools-clis",
+    "title": "Developer Tools & CLIs",
+    "scope": "Tools developers run: CLIs, TUIs, editor extensions, local environments, API clients, profilers and build tooling."
+  },
+  {
+    "slug": "github-open-source",
+    "title": "GitHub & Open Source Ecosystem",
+    "scope": "GitHub Actions and Apps, maintainer and contributor tooling, repo health, community and OSS sustainability."
+  },
+  {
+    "slug": "micro-saas-indie",
+    "title": "Micro-SaaS & Indie Apps",
+    "scope": "Small web or mobile products a solo developer can ship and charge for: developer SaaS, niche AI tools, local-business and vertical apps."
+  },
+  {
+    "slug": "automation-workflows",
+    "title": "Automation & Workflows",
+    "scope": "Glue that connects existing services: personal and business automations, workflow engines, browser automation, bots and sync."
+  },
+  {
+    "slug": "data-analytics",
+    "title": "Data & Analytics",
+    "scope": "Pipelines, data quality, BI, product analytics, datasets, visualisation, notebooks and observability data."
+  },
+  {
+    "slug": "security-privacy",
+    "title": "Security & Privacy",
+    "scope": "AI and agent security, supply chain, secrets, AppSec, cloud hardening, privacy tools and detection."
+  },
+  {
+    "slug": "games-creative-coding",
+    "title": "Games & Creative Coding",
+    "scope": "Games, game tooling, generative art, music and audio, interactive experiments, retro and creative tools."
+  },
+  {
+    "slug": "hardware-iot-self-hosting",
+    "title": "Hardware, IoT & Self-hosting",
+    "scope": "Microcontrollers, home automation, local AI hardware, self-hosted services, networking, radio, backups and homelabs."
+  },
+  {
+    "slug": "learning-projects",
+    "title": "Learning Projects: Beginner to Advanced",
+    "scope": "Classic builds with a twist, grouped by level, each chosen to teach a specific concept."
+  }
+]

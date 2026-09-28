@@ -1,0 +1,75 @@
+name: Suggest an idea
+description: Propose a new idea or fork suggestion for the list.
+title: "Idea: "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Please read CONTRIBUTING.md first. Ideas must be specific, valuable and not already in the list.
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Dev Ideas
+        - Project Inspiration
+        - Fork Suggestions
+        - AI, Agents & MCP
+        - Developer Tools & CLIs
+        - GitHub & Open Source Ecosystem
+        - Micro-SaaS & Indie Apps
+        - Automation & Workflows
+        - Data & Analytics
+        - Security & Privacy
+        - Games & Creative Coding
+        - Hardware, IoT & Self-hosting
+        - "Learning Projects: Beginner to Advanced"
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title (or owner/repo for a fork suggestion)
+      placeholder: "MCP Server Test Harness"
+    validations:
+      required: true
+  - type: textarea
+    id: pitch
+    attributes:
+      label: One-line pitch (or, for forks, what the repo is and the fork idea)
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it's valuable and who needs it
+    validations:
+      required: true
+  - type: input
+    id: stack
+    attributes:
+      label: Suggested stack (or licence for forks)
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty
+      options:
+        - Beginner
+        - Intermediate
+        - Advanced
+    validations:
+      required: true
+  - type: input
+    id: prior-art
+    attributes:
+      label: Prior art link (optional, must load and be related)
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched the list and this is not a duplicate.
+          required: true
+        - label: Any link I included loads and matches the idea; I didn't invent repos or numbers.
+          required: true
