@@ -2,7 +2,7 @@
 
 > **Scope:** Microcontrollers, home automation, local AI hardware, self-hosted services, networking, radio, backups and homelabs.
 
-52 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
+66 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
 
 ## Contents
 
@@ -53,6 +53,18 @@
   - **Why:** Cloud doorbells charge subscriptions and share footage.
   - **Stack:** Raspberry Pi or ESP32-CAM, Frigate, Home Assistant · **Difficulty:** 🟡 Intermediate
 
+- **Washing Machine Done Notifier**: A vibration or power sensor that notifies you when the washer or dryer finishes.
+  - **Why:** Laundry sits wet for hours because nobody heard the beep.
+  - **Stack:** ESP32, accelerometer or smart plug, Home Assistant · **Difficulty:** 🟢 Beginner · **Prior art:** [esphome/esphome](https://github.com/esphome/esphome)
+
+- **Water Leak Sensor Network**: Cheap leak sensors under sinks and heaters that alert and optionally shut a valve.
+  - **Why:** Small leaks cause expensive damage before anyone notices.
+  - **Stack:** ESP32 or Zigbee sensors, motorised valve · **Difficulty:** 🟢 Beginner
+
+- **Room Occupancy Lighting with mmWave**: Lights that stay on while someone is sitting still, using mmWave presence instead of PIR.
+  - **Why:** PIR sensors turn lights off on people reading or working.
+  - **Stack:** ESP32, LD2410 mmWave sensor, ESPHome · **Difficulty:** 🟡 Intermediate
+
 ## Local AI hardware
 
 - **Sound Event Monitor**: Classify household sounds locally (smoke alarm, glass break, baby crying) and send alerts.
@@ -78,6 +90,10 @@
 - **Edge Keyword Spotter**: Train a custom wake word and run it on a microcontroller.
   - **Why:** Hands-on TinyML with instant feedback.
   - **Stack:** TensorFlow Lite Micro, ESP32 · **Difficulty:** 🔴 Advanced
+
+- **Local LLM Power Meter**: Measures watts per generated token for local models using a smart plug and publishes comparable results.
+  - **Why:** Buyers of local AI hardware want real energy costs, not TDP guesses.
+  - **Stack:** Smart plug API, llama.cpp, Python · **Difficulty:** 🟡 Intermediate
 
 ## Self-hosted services
 
@@ -109,6 +125,18 @@
   - **Why:** Enjoy photos without a cloud frame subscription.
   - **Stack:** Raspberry Pi, Immich API, kiosk browser · **Difficulty:** 🟢 Beginner · **Prior art:** [immich-app/immich](https://github.com/immich-app/immich)
 
+- **Kids' Media Server with Allow-Lists**: A self-hosted media server where children only see approved shows, with daily viewing limits.
+  - **Why:** Streaming apps' kids' modes still surface unwanted content.
+  - **Stack:** Jellyfin, Docker, parental controls · **Difficulty:** 🟢 Beginner · **Prior art:** [jellyfin/jellyfin](https://github.com/jellyfin/jellyfin)
+
+- **Self-Hosted Music Streaming Setup Guide**: A tested Compose stack for streaming your music library to phones with offline sync.
+  - **Why:** Streaming services remove albums; owners want their own library everywhere.
+  - **Stack:** Navidrome, Docker Compose, reverse proxy · **Difficulty:** 🟢 Beginner · **Prior art:** [navidrome/navidrome](https://github.com/navidrome/navidrome)
+
+- **Home Inventory with Warranty Tracking**: Catalogue belongings with photos, receipts and warranty dates, with label printing and insurance export.
+  - **Why:** After a burglary or flood, nobody can list what they owned.
+  - **Stack:** Self-hosted web app, Docker, label printer · **Difficulty:** 🟡 Intermediate
+
 ## Networking
 
 - **Mesh VPN for Family Tech Support**: Preconfigured mesh VPN so you can securely help family devices remotely.
@@ -134,6 +162,14 @@
 - **Internal Domains with Valid TLS**: Generate split DNS and DNS-challenge certificates so homelab services get real HTTPS names.
   - **Why:** Browser warnings and IP:port bookmarks make self-hosted services painful.
   - **Stack:** Traefik or Caddy, DNS provider API · **Difficulty:** 🟡 Intermediate · **Prior art:** [traefik/traefik](https://github.com/traefik/traefik)
+
+- **Guest Wi-Fi QR Code Display**: An e-ink display showing a rotating guest Wi-Fi password as a QR code.
+  - **Why:** Guests ask for the Wi-Fi password every visit.
+  - **Stack:** ESP32, e-paper, router API · **Difficulty:** 🟢 Beginner
+
+- **IPv6 Readiness Checker for Home Networks**: Tests your home network's IPv6 setup, firewall and DNS and explains what to fix.
+  - **Why:** IPv6 is enabled by ISPs but misconfigured at home.
+  - **Stack:** Python, web UI · **Difficulty:** 🟡 Intermediate
 
 ## Maker electronics
 
@@ -169,6 +205,14 @@
   - **Why:** Owners want their own driving data without an insurer's dongle.
   - **Stack:** ESP32 or Raspberry Pi, ELM327, Grafana · **Difficulty:** 🟡 Intermediate
 
+- **Soldering Fume Extractor with Air Quality Readout**: A DIY fume extractor that speeds up based on measured VOC levels.
+  - **Why:** Hobbyists breathe solder fumes without realising the levels.
+  - **Stack:** Arduino, VOC sensor, PWM fan · **Difficulty:** 🟢 Beginner
+
+- **Desk Occupancy Timer**: A desk sensor that tracks sitting time and nudges you to stand.
+  - **Why:** Long sitting stretches are unhealthy and easy to lose track of.
+  - **Stack:** ESP32, pressure or mmWave sensor · **Difficulty:** 🟢 Beginner
+
 ## Edge, offline & radio
 
 - **LoRa Sensor Network for a Farm**: Long-range sensors for water tanks, gates and weather reporting to a base station.
@@ -191,6 +235,10 @@
   - **Why:** Community resilience in emergencies.
   - **Stack:** Meshtastic, Raspberry Pi, MQTT · **Difficulty:** 🟡 Intermediate · **Prior art:** [meshtastic/firmware](https://github.com/meshtastic/firmware)
 
+- **Weather Balloon Telemetry Tracker**: Receives LoRa telemetry from a high-altitude balloon and plots its flight live.
+  - **Why:** A memorable STEM project with real radio engineering.
+  - **Stack:** LoRa, GPS module, web map · **Difficulty:** 🔴 Advanced
+
 ## Backups & storage
 
 - **3-2-1 Backup Orchestrator**: Configure local, NAS and off-site backups with verification and restore drills.
@@ -212,6 +260,10 @@
 - **Document Scanner Station**: Button-press scanner station that OCRs and files documents into a DMS.
   - **Why:** Paperless home without a PC in the loop.
   - **Stack:** Raspberry Pi, SANE, paperless-ngx · **Difficulty:** 🟢 Beginner · **Prior art:** [paperless-ngx/paperless-ngx](https://github.com/paperless-ngx/paperless-ngx)
+
+- **Long-Term Cold Archive Planner**: Plans, writes and catalogues long-term archives to optical discs or LTO tape with parity files and a searchable index.
+  - **Why:** Spinning disks and cloud accounts are poor bets for 20-year archives.
+  - **Stack:** Python, par2, SQLite catalogue · **Difficulty:** 🟡 Intermediate
 
 ## Home lab infrastructure
 
@@ -238,3 +290,7 @@
 - **Container Update Advisor**: Show available image updates with changelog summaries before applying.
   - **Why:** Blind auto-updates break services.
   - **Stack:** Go, registry APIs, release notes · **Difficulty:** 🟡 Intermediate
+
+- **Out-of-Band Management with PiKVM-Style Access**: Remote keyboard, video and power control for homelab machines when the OS is down.
+  - **Why:** Fixing a frozen server should not require walking to it.
+  - **Stack:** Raspberry Pi, HDMI capture, relays · **Difficulty:** 🔴 Advanced · **Prior art:** [pikvm/pikvm](https://github.com/pikvm/pikvm)

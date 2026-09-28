@@ -2,7 +2,7 @@
 
 > **Scope:** AI and agent security, supply chain, secrets, AppSec, cloud hardening, privacy tools and detection.
 
-52 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
+70 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
 
 ## Contents
 
@@ -56,6 +56,18 @@
   - **Why:** Companies want LLM features without sending customer data to vendors.
   - **Stack:** Python, Presidio, reverse proxy · **Difficulty:** 🟡 Intermediate · **Prior art:** [data-privacy-stack/presidio](https://github.com/data-privacy-stack/presidio)
 
+- **Agent Permission Diff on Config Changes**: Shows reviewers exactly which new tools, paths and network access a change to agent config grants.
+  - **Why:** Permission creep in agent configs slips through review.
+  - **Stack:** TypeScript, config parsers, GitHub Action · **Difficulty:** 🟢 Beginner
+
+- **Poisoned Context File Detector**: Scans repo context files and docs for hidden instructions aimed at coding agents.
+  - **Why:** Hidden prompt injections in repos can hijack agents working on them.
+  - **Stack:** Python, Unicode and pattern checks · **Difficulty:** 🟢 Beginner
+
+- **Agent Sandbox Escape Test Suite**: A set of tests that check whether an agent sandbox blocks filesystem, network and process escapes.
+  - **Why:** Teams trust sandboxes they have never tested.
+  - **Stack:** Python, containers, gVisor or Firecracker · **Difficulty:** 🔴 Advanced
+
 ## Supply chain
 
 - **Package Age Gate**: Block installing package versions younger than N days unless explicitly allowed.
@@ -86,6 +98,18 @@
   - **Why:** Proves the published binary matches the source.
   - **Stack:** Docker, diffoscope, Actions · **Difficulty:** 🔴 Advanced · **Prior art:** [sigstore/cosign](https://github.com/sigstore/cosign)
 
+- **Typosquat Watcher for Your Packages**: Alerts when new packages appear with names confusingly similar to yours.
+  - **Why:** Typosquats target popular packages and their users.
+  - **Stack:** Python, registry feeds, string distance · **Difficulty:** 🟢 Beginner
+
+- **Maintainer Takeover Alerts**: Alerts when a dependency changes maintainers or publishing accounts.
+  - **Why:** Account takeovers and handovers precede many supply-chain attacks.
+  - **Stack:** Python, registry APIs · **Difficulty:** 🟡 Intermediate
+
+- **Postinstall Script Inventory**: Lists every dependency that runs install scripts and what those scripts do.
+  - **Why:** Install scripts are a common malware vector hidden in lockfiles.
+  - **Stack:** Node.js, npm registry metadata · **Difficulty:** 🟢 Beginner
+
 ## Secrets & identity
 
 - **Secret Rotation Runbook Automator**: Detect a leaked secret and walk through revoking and rotating it across the providers that use it.
@@ -115,6 +139,14 @@
 - **OAuth Scope Auditor**: List third-party apps connected to your Google/GitHub/Slack org with scopes and last use.
   - **Why:** Over-scoped forgotten integrations are a quiet risk.
   - **Stack:** Python, admin APIs, report · **Difficulty:** 🟡 Intermediate
+
+- **Session Cookie Hardening Checker**: Checks an app's cookies for Secure, HttpOnly, SameSite and scope problems with framework-specific fixes.
+  - **Why:** Weak cookie flags make session theft much easier.
+  - **Stack:** Playwright, rule set, CLI report · **Difficulty:** 🟢 Beginner
+
+- **Service Account Inventory**: Lists cloud service accounts and API keys with owners, last use and age.
+  - **Why:** Forgotten service accounts are prime targets.
+  - **Stack:** Python, cloud IAM APIs · **Difficulty:** 🟡 Intermediate
 
 ## AppSec & testing
 
@@ -150,6 +182,18 @@
   - **Why:** Webhook handlers often skip signature or timestamp checks.
   - **Stack:** TypeScript and Python packages, test vectors · **Difficulty:** 🟢 Beginner
 
+- **Security.txt Generator and Checker**: Generates a valid security.txt and checks sites for missing or expired ones.
+  - **Why:** Researchers can't report vulnerabilities without a contact.
+  - **Stack:** Static web app, RFC 9116 validation · **Difficulty:** 🟢 Beginner
+
+- **CSP Builder from Real Traffic**: Builds a Content Security Policy from report-only violations collected over a week.
+  - **Why:** Writing a CSP by hand breaks sites; learning from traffic is safer.
+  - **Stack:** Node.js report endpoint, policy generator · **Difficulty:** 🟡 Intermediate
+
+- **Mass Assignment Detector**: Finds API endpoints that bind request bodies directly to models with sensitive fields.
+  - **Why:** Mass assignment still leaks admin flags and prices.
+  - **Stack:** Semgrep rules, framework-specific checks · **Difficulty:** 🟡 Intermediate
+
 ## Infrastructure & cloud
 
 - **Public Bucket Finder for Your Org**: Enumerate your cloud storage and flag public or cross-account access with a fix command.
@@ -175,6 +219,14 @@
 - **Container Runtime Anomaly Alerts**: Alert on unexpected processes, shells or network connections inside production containers.
   - **Why:** Detects compromised containers early.
   - **Stack:** eBPF, Falco rules · **Difficulty:** 🔴 Advanced · **Prior art:** [falcosecurity/falco](https://github.com/falcosecurity/falco)
+
+- **Dangling DNS Record Finder**: Finds CNAME and A records pointing at deprovisioned cloud resources that could be taken over.
+  - **Why:** Subdomain takeovers are cheap for attackers and embarrassing for you.
+  - **Stack:** Python, DNS resolution, cloud provider APIs · **Difficulty:** 🟢 Beginner
+
+- **Cloud Cost Anomaly as Security Signal**: Flags sudden spend spikes by service as potential cryptomining or abuse.
+  - **Why:** Compromised cloud accounts often show up first on the bill.
+  - **Stack:** Python, cloud billing APIs · **Difficulty:** 🟡 Intermediate
 
 ## Privacy tools
 
@@ -210,6 +262,18 @@
   - **Why:** Popular extensions get sold and turned into spyware.
   - **Stack:** TypeScript, Chrome Web Store data, CLI · **Difficulty:** 🟡 Intermediate
 
+- **Browser Fingerprint Self-Test**: Shows how unique your browser fingerprint is and which settings or extensions reduce it, with analysis done locally.
+  - **Why:** Most people don't know fingerprinting tracks them without cookies.
+  - **Stack:** JavaScript, local-only analysis · **Difficulty:** 🟢 Beginner
+
+- **Photo Face Blurring Tool**: Automatically blurs faces and licence plates in photos before sharing, fully offline.
+  - **Why:** Sharing street or event photos exposes bystanders.
+  - **Stack:** Python, local face detection model · **Difficulty:** 🟢 Beginner
+
+- **Privacy-Preserving Analytics with Differential Privacy**: Aggregate analytics that add calibrated noise so individual users can't be singled out.
+  - **Why:** Teams want useful stats without collecting identifiable data.
+  - **Stack:** Python, OpenDP · **Difficulty:** 🔴 Advanced · **Prior art:** [opendp/opendp](https://github.com/opendp/opendp)
+
 ## Detection & response
 
 - **Homelab SIEM Starter**: Collect auth, firewall and container logs into one searchable place with starter alerts.
@@ -235,3 +299,11 @@
 - **Security Changelog for Your Stack**: Daily digest of advisories affecting only the packages and images you actually run.
   - **Why:** Generic advisory feeds are too noisy to read.
   - **Stack:** Python, OSV API, SBOMs · **Difficulty:** 🟢 Beginner · **Prior art:** [google/osv-scanner](https://github.com/google/osv-scanner)
+
+- **Login Anomaly Notifier for Small Apps**: Emails users on logins from new devices or countries with a one-click "not me" lockout.
+  - **Why:** Small apps rarely have account takeover detection.
+  - **Stack:** Library for Django or Express, GeoIP · **Difficulty:** 🟡 Intermediate
+
+- **Honeytoken Files for Laptops**: Plants fake credential files on laptops that alert when opened or used.
+  - **Why:** Early warning of laptop compromise at almost no cost.
+  - **Stack:** Go agent, canary endpoints · **Difficulty:** 🔴 Advanced

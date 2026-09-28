@@ -2,7 +2,7 @@
 
 > **Scope:** Agent harnesses, MCP servers, skills, memory, evals, local models and RAG. AI security lives in Security & Privacy.
 
-52 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
+74 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
 
 ## Contents
 
@@ -52,6 +52,18 @@
   - **Why:** Shows how cross-vendor agent protocols behave in practice and where they break.
   - **Stack:** Python, A2A SDK, web trace viewer · **Difficulty:** 🟡 Intermediate · **Prior art:** [a2aproject/A2A](https://github.com/a2aproject/A2A)
 
+- **AGENTS.md Starter Generator**: Scans a repo and drafts agent instructions with build, test and style commands verified by actually running them.
+  - **Why:** Most repos have no agent instructions, and hand-written ones often contain wrong commands.
+  - **Stack:** Python, stack detection, command runner · **Difficulty:** 🟢 Beginner
+
+- **Prompt Library with Version Pins**: Stores team prompts in git with versions, owners and the model each was tested on.
+  - **Why:** Prompts get copy-pasted and silently drift between people.
+  - **Stack:** Markdown, YAML frontmatter, small CLI · **Difficulty:** 🟢 Beginner
+
+- **Agent Task Timeout Watchdog**: Kills or pauses agent runs that loop on the same tool call or exceed wall-clock limits, with a summary.
+  - **Why:** Stuck agents waste hours and money overnight.
+  - **Stack:** Python, process supervision, log parsing · **Difficulty:** 🟢 Beginner
+
 ## MCP servers
 
 - **MCP Server Test Harness**: Record-and-replay tests for MCP servers: capture real sessions, then assert on tool schemas and outputs in CI.
@@ -98,6 +110,22 @@
   - **Why:** Most MCP servers skip tests and packaging; a good template raises the floor.
   - **Stack:** TypeScript or Python template, GitHub Actions · **Difficulty:** 🟢 Beginner · **Prior art:** [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk)
 
+- **RSS and Newsletter MCP**: An MCP server that exposes your feeds and newsletters as searchable, summarisable resources.
+  - **Why:** Assistants can brief you from sources you already trust.
+  - **Stack:** Python, MCP SDK, feedparser · **Difficulty:** 🟢 Beginner · **Prior art:** [modelcontextprotocol/python-sdk](https://github.com/modelcontextprotocol/python-sdk)
+
+- **Home Assistant Read-Only MCP**: Lets an assistant query sensor history and device states without permission to control anything.
+  - **Why:** Useful questions about your home without the risk of unlocking doors.
+  - **Stack:** Python, Home Assistant REST API, MCP SDK · **Difficulty:** 🟢 Beginner · **Prior art:** [home-assistant/core](https://github.com/home-assistant/core)
+
+- **Spreadsheet MCP with Formula Awareness**: Exposes spreadsheets to agents with formulas, named ranges and cell provenance rather than flat values.
+  - **Why:** Agents break spreadsheets when they only see computed values.
+  - **Stack:** TypeScript, MCP SDK, xlsx parser · **Difficulty:** 🟡 Intermediate
+
+- **Git History MCP**: Answers "when and why did this change" by exposing blame, log and PR links as MCP tools.
+  - **Why:** Agents make better edits when they know the history behind code.
+  - **Stack:** Go or TypeScript, git, MCP SDK · **Difficulty:** 🟢 Beginner
+
 ## Skills & plugins
 
 - **SkillCI**: Run each agent skill against test prompts on several models, grade the output and publish a pass/fail badge.
@@ -123,6 +151,18 @@
 - **Domain Skill Packs**: Curated, tested skill packs for one domain (e.g. accessibility audits, database migrations, i18n).
   - **Why:** Deep, tested packs beat scattered one-off skills.
   - **Stack:** Markdown skills, scripts, SkillCI tests · **Difficulty:** 🟢 Beginner · **Prior art:** [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)
+
+- **Commit Message Skill**: A skill that writes commit messages following the repo's own conventions learned from history.
+  - **Why:** Agent commits often ignore project conventions.
+  - **Stack:** SKILL.md, git log examples · **Difficulty:** 🟢 Beginner
+
+- **Accessibility Review Skill**: A skill that audits UI changes against WCAG checks and proposes concrete fixes.
+  - **Why:** Accessibility is skipped when it needs a specialist.
+  - **Stack:** SKILL.md, axe-core scripts · **Difficulty:** 🟢 Beginner · **Prior art:** [dequelabs/axe-core](https://github.com/dequelabs/axe-core)
+
+- **Database Migration Safety Skill**: A skill that reviews migrations for locking, backfill and rollback risks before an agent applies them.
+  - **Why:** Agents happily write migrations that lock production tables.
+  - **Stack:** SKILL.md, SQL analysis scripts · **Difficulty:** 🟡 Intermediate
 
 ## Memory & context
 
@@ -154,6 +194,18 @@
   - **Why:** Keeps personal context portable and private instead of locked in one vendor.
   - **Stack:** Go or Python, Postgres + pgvector, OAuth · **Difficulty:** 🟡 Intermediate · **Prior art:** [mem0ai/mem0](https://github.com/mem0ai/mem0)
 
+- **Project Glossary for Agents**: Maintains a glossary of domain terms and injects relevant entries into agent context automatically.
+  - **Why:** Agents misuse domain vocabulary and invent wrong meanings.
+  - **Stack:** Python, embeddings, Markdown glossary · **Difficulty:** 🟢 Beginner
+
+- **Context File Linter**: Checks AGENTS.md and similar files for contradictions, stale commands and excessive length.
+  - **Why:** Bloated or wrong context files silently degrade agent performance.
+  - **Stack:** TypeScript, Markdown parser, command checks · **Difficulty:** 🟢 Beginner
+
+- **Episodic Memory with Forgetting**: Agent memory that decays unimportant facts and consolidates repeated ones over time.
+  - **Why:** Memory stores grow noisy and retrieve irrelevant old facts.
+  - **Stack:** Python, SQLite, embeddings · **Difficulty:** 🔴 Advanced
+
 ## Evals & observability
 
 - **Blackbox**: Cross-harness flight recorder: search, diff and replay agent sessions and export shareable session cards.
@@ -179,6 +231,22 @@
 - **Hallucinated Import Detector**: Flag generated code that imports packages or APIs that don't exist in the registry or your lockfile.
   - **Why:** Hallucinated packages waste time and invite slopsquatting.
   - **Stack:** Python, registry APIs, AST parsing · **Difficulty:** 🟢 Beginner
+
+- **Eval Dataset from Support Tickets**: Turns resolved support tickets into evaluation cases for a support assistant.
+  - **Why:** Real user questions make the best evals.
+  - **Stack:** Python, helpdesk API, LLM labelling · **Difficulty:** 🟡 Intermediate
+
+- **Voice Agent Latency Tester**: Measures per-turn latency of voice agents across speech detection, transcription, model and speech synthesis.
+  - **Why:** Voice agents feel broken above a second of delay, and teams can't see where the time goes.
+  - **Stack:** Python, WebRTC, recorded audio fixtures · **Difficulty:** 🟢 Beginner
+
+- **Agent Cost per Merged PR**: Links agent spend to merged PRs to show real cost per shipped change.
+  - **Why:** Token spend means little without outcomes attached.
+  - **Stack:** Python, provider usage APIs, GitHub API · **Difficulty:** 🟡 Intermediate
+
+- **Judge Agreement Analyzer**: Measures how often LLM judges agree with human graders and where they disagree.
+  - **Why:** Uncalibrated LLM judges give false confidence.
+  - **Stack:** Python, statistics, labelled samples · **Difficulty:** 🟡 Intermediate
 
 ## Local models & inference
 
@@ -210,6 +278,18 @@
   - **Why:** Many developers have Macs but no GPU servers.
   - **Stack:** MLX, Python, Hugging Face datasets · **Difficulty:** 🟡 Intermediate · **Prior art:** [ml-explore/mlx-examples](https://github.com/ml-explore/mlx-examples)
 
+- **Local Model Quantisation Comparer**: Runs the same prompts on several quantisations of a model and compares quality, speed and memory.
+  - **Why:** Picking a quantisation is guesswork for most local users.
+  - **Stack:** Python, llama.cpp, eval prompts · **Difficulty:** 🟡 Intermediate · **Prior art:** [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp)
+
+- **Speculative Decoding Playground**: Pairs small draft models with larger targets locally and measures real speedups by task.
+  - **Why:** Speculative decoding speedups vary widely by pairing and task.
+  - **Stack:** Python, llama.cpp or vLLM · **Difficulty:** 🔴 Advanced
+
+- **On-Device Embedding Server**: A tiny embedding service optimised for CPUs and NPUs with batching and caching.
+  - **Why:** Local RAG needs fast embeddings without a GPU.
+  - **Stack:** Rust, ONNX Runtime · **Difficulty:** 🔴 Advanced
+
 ## RAG & documents
 
 - **Citation-First RAG**: RAG that only answers with quotes and page anchors, and refuses when no source supports the claim.
@@ -235,3 +315,11 @@
 - **Meeting-to-Decisions Extractor**: Turn transcripts into decisions, owners and open questions linked to timestamps.
   - **Why:** Decisions get lost in hour-long recordings.
   - **Stack:** faster-whisper, LLM structured output, Markdown · **Difficulty:** 🟢 Beginner · **Prior art:** [SYSTRAN/faster-whisper](https://github.com/SYSTRAN/faster-whisper)
+
+- **Table-Aware PDF Q&A**: Q&A over PDFs that keeps tables intact and answers numeric questions with cell citations.
+  - **Why:** Flattened tables make RAG answers wrong for financial and scientific documents.
+  - **Stack:** Python, Docling, DuckDB · **Difficulty:** 🟡 Intermediate
+
+- **Multimodal Manual Assistant**: Answers questions about product manuals using both text and diagrams with page references.
+  - **Why:** Manuals explain half their content in diagrams that text-only RAG ignores.
+  - **Stack:** Python, vision-language model, vector store · **Difficulty:** 🔴 Advanced

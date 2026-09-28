@@ -2,7 +2,7 @@
 
 > **Scope:** GitHub Actions and Apps, maintainer and contributor tooling, repo health, community and OSS sustainability.
 
-52 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
+87 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
 
 ## Contents
 
@@ -48,6 +48,30 @@
   - **Why:** Recognition keeps volunteers engaged; non-code work is usually invisible.
   - **Stack:** Action, GitHub API, Markdown · **Difficulty:** 🟢 Beginner · **Prior art:** [all-contributors/allcontributors.org](https://github.com/all-contributors/allcontributors.org)
 
+- **Duplicate Issue Nudge**: Comments on new issues with the three most similar open or closed issues before a maintainer looks.
+  - **Why:** Maintainers spend hours closing duplicates by hand.
+  - **Stack:** GitHub Action, embeddings · **Difficulty:** 🟢 Beginner
+
+- **Needs-Reproduction Label Bot**: Asks for a minimal reproduction on bug reports without one and closes them politely after a set time.
+  - **Why:** Unreproducible bug reports clog issue trackers.
+  - **Stack:** GitHub Action, issue form parsing · **Difficulty:** 🟢 Beginner
+
+- **Maintainer Vacation Mode**: Sets an auto-reply on new issues and PRs while you're away and hands urgent ones to a backup.
+  - **Why:** Maintainers feel they can never take a break.
+  - **Stack:** GitHub App, config file · **Difficulty:** 🟢 Beginner
+
+- **First-Time Contributor Welcome Kit**: Greets first-time contributors with repo-specific setup tips and a checklist tailored to their PR.
+  - **Why:** First contributions often stall on avoidable setup problems.
+  - **Stack:** GitHub Action, templates · **Difficulty:** 🟢 Beginner
+
+- **Monorepo Split Mirror**: Mirrors subdirectories of a monorepo into read-only repos with history, redirecting issues back to the source.
+  - **Why:** Users want to star, watch and vendor individual packages from big monorepos.
+  - **Stack:** Go, git filter-repo, GitHub API · **Difficulty:** 🔴 Advanced · **Prior art:** [newren/git-filter-repo](https://github.com/newren/git-filter-repo)
+
+- **Low-Effort PR Filter**: Flags PRs that only touch whitespace, README typos in bulk or match known spam patterns.
+  - **Why:** Hacktoberfest-style spam floods popular repos every year.
+  - **Stack:** GitHub Action, heuristics · **Difficulty:** 🟡 Intermediate
+
 ## Supply chain & CI hardening
 
 - **PinPR**: Opens one PR that pins actions to SHAs, adds least-privilege permissions and fixes risky triggers, explaining each change.
@@ -73,6 +97,22 @@
 - **Release Provenance Badge**: Action that attests build provenance for releases and adds a verifiable README badge.
   - **Why:** Users increasingly check that binaries were built from the source they see.
   - **Stack:** Actions, Sigstore, SLSA attestations · **Difficulty:** 🟡 Intermediate · **Prior art:** [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator)
+
+- **Workflow Trigger Auditor**: Flags risky triggers like pull_request_target combined with checkout of untrusted code.
+  - **Why:** This combination is a well-known path to repository compromise.
+  - **Stack:** Python, workflow YAML parser · **Difficulty:** 🟢 Beginner · **Prior art:** [zizmorcore/zizmor](https://github.com/zizmorcore/zizmor)
+
+- **Self-Hosted Runner Hygiene Checker**: Checks self-hosted runners for persistent state between jobs and public-repo exposure.
+  - **Why:** Persistent runners on public repos let attackers linger between jobs.
+  - **Stack:** Go, runner API, host checks · **Difficulty:** 🟡 Intermediate
+
+- **Signed Commit Adoption Tracker**: Shows what share of commits in an org are signed and nudges contributors with setup guides.
+  - **Why:** Commit signing only works if adoption is high.
+  - **Stack:** GitHub API, dashboard · **Difficulty:** 🟢 Beginner
+
+- **CI Cache Poisoning Checker**: Detects workflows where untrusted PRs can write to caches that trusted jobs later restore.
+  - **Why:** Cache poisoning is a subtle but real supply-chain attack path.
+  - **Stack:** Python, workflow analysis · **Difficulty:** 🔴 Advanced
 
 ## Docs & repo health
 
@@ -103,6 +143,26 @@
 - **Link Rot Sweeper for Wikis**: Scan a repo's wiki and docs for dead links and open one PR with archived replacements.
   - **Why:** Docs accumulate dead links that frustrate readers.
   - **Stack:** Action, lychee, Wayback Machine API · **Difficulty:** 🟢 Beginner · **Prior art:** [lycheeverse/lychee](https://github.com/lycheeverse/lychee)
+
+- **Closed Issue Archaeology Search**: Full-text search across closed issues, PR threads and discussions with code-aware ranking.
+  - **Why:** Answers are buried in old closed threads that GitHub search ranks poorly.
+  - **Stack:** Python, GitHub GraphQL API, SQLite FTS · **Difficulty:** 🟢 Beginner
+
+- **Badge Cleanup Bot**: Finds broken, redundant or misleading README badges and proposes a trimmed set.
+  - **Why:** Badge walls with dead services make projects look abandoned.
+  - **Stack:** GitHub Action, HTTP checks · **Difficulty:** 🟢 Beginner
+
+- **Docs Coverage for Public APIs**: Reports which exported functions lack docs and fails CI when coverage drops.
+  - **Why:** Undocumented APIs drive support questions.
+  - **Stack:** TypeScript or Python analysis, CI comment · **Difficulty:** 🟢 Beginner
+
+- **Topic Tag Suggester**: Suggests GitHub topics for a repo from its README, dependencies and similar popular repos.
+  - **Why:** Repos without topics are nearly invisible in GitHub search.
+  - **Stack:** GitHub Action, GitHub API · **Difficulty:** 🟢 Beginner
+
+- **Translated README Sync Checker**: Detects when translated READMEs fall behind the English version and lists missing sections.
+  - **Why:** Translations silently go stale.
+  - **Stack:** Python, Markdown section diff · **Difficulty:** 🟡 Intermediate
 
 ## Community & discovery
 
@@ -137,6 +197,26 @@
 - **Profile README Widgets that Don't Break**: Self-hosted profile stats cards cached on your own infra, resilient to public-instance rate limits.
   - **Why:** Public stats-card instances regularly hit rate limits.
   - **Stack:** Vercel functions, GitHub GraphQL, SVG · **Difficulty:** 🟢 Beginner · **Prior art:** [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+
+- **Similar Repos Finder**: Suggests repos similar to one you like by topics, dependencies and contributors.
+  - **Why:** Discovering alternatives or complementary tools is hard on GitHub.
+  - **Stack:** Python, GitHub API, embeddings · **Difficulty:** 🟡 Intermediate
+
+- **Maintainer Office Hours Scheduler**: Lets maintainers publish office-hour slots that contributors can book, linked to issues.
+  - **Why:** Real-time help speeds up contributions but is hard to organise.
+  - **Stack:** Cal.com-style booking, GitHub OAuth · **Difficulty:** 🟢 Beginner
+
+- **Contributor Map**: A world map of a project's contributors from public profile locations with opt-out.
+  - **Why:** Shows a project's global community at a glance.
+  - **Stack:** GitHub API, geocoding, MapLibre · **Difficulty:** 🟢 Beginner
+
+- **Contribution Event Readiness Checker**: Checks a repo for labelled starter issues, contribution docs and CI speed before contribution events.
+  - **Why:** Event traffic overwhelms repos that aren't ready for it.
+  - **Stack:** GitHub Action, GitHub API · **Difficulty:** 🟢 Beginner
+
+- **Open Source Mentorship Matcher**: Matches new contributors with volunteer mentors by language, timezone and project.
+  - **Why:** Newcomers need guidance that maintainers can't personally give.
+  - **Stack:** Next.js, GitHub OAuth, Postgres · **Difficulty:** 🟡 Intermediate
 
 ## Automation & GitHub Apps
 
@@ -176,6 +256,26 @@
   - **Why:** Milestones slip silently.
   - **Stack:** Action, cron, GitHub API · **Difficulty:** 🟢 Beginner
 
+- **Label-Based Issue Router**: Routes issues to team boards and chat channels based on labels and paths mentioned.
+  - **Why:** Big repos need issues to reach the right team fast.
+  - **Stack:** GitHub App, config YAML · **Difficulty:** 🟢 Beginner
+
+- **PR Description Checker**: Ensures PR descriptions fill required sections like testing notes and linked issues.
+  - **Why:** Empty PR descriptions slow reviews.
+  - **Stack:** GitHub Action · **Difficulty:** 🟢 Beginner
+
+- **Auto-Changelog Fragments**: Asks each PR to add a changelog fragment and assembles them at release time.
+  - **Why:** Changelogs written at release time miss things.
+  - **Stack:** GitHub Action, towncrier-style fragments · **Difficulty:** 🟡 Intermediate · **Prior art:** [twisted/towncrier](https://github.com/twisted/towncrier)
+
+- **Milestone Progress Reporter**: Posts weekly milestone progress with burndown and at-risk issues to a discussion.
+  - **Why:** Community projects lack visibility into release progress.
+  - **Stack:** GitHub Action, GraphQL API · **Difficulty:** 🟡 Intermediate
+
+- **Cross-Fork CI Status Board**: Shows CI status of downstream forks against upstream changes before release.
+  - **Why:** Maintainers break forks and dependents without knowing.
+  - **Stack:** GitHub API, dashboard · **Difficulty:** 🔴 Advanced
+
 ## Sustainability & governance
 
 - **Funding Readiness Checker**: Check a repo for FUNDING.yml, a governance doc, a security policy and roadmap, and suggest what's missing.
@@ -206,6 +306,26 @@
   - **Why:** Maintainers want usage data without adding telemetry to their tools.
   - **Stack:** Python, registry APIs, dashboard · **Difficulty:** 🟡 Intermediate
 
+- **Maintainer Burnout Signals**: Tracks review load, off-hours activity and response pressure to warn before burnout.
+  - **Why:** Burnout is the top reason projects die.
+  - **Stack:** GitHub API, dashboard · **Difficulty:** 🟡 Intermediate
+
+- **Grant Opportunity Finder for OSS**: Matches projects to open-source grants and funds by domain, licence and country.
+  - **Why:** Maintainers don't know which funds they qualify for.
+  - **Stack:** Web app, curated grant database · **Difficulty:** 🟢 Beginner
+
+- **Contributor Licence Agreement Lite**: A DCO sign-off checker with friendly fix instructions instead of legal CLAs.
+  - **Why:** CLAs deter contributors; DCO is lighter but checks are unfriendly.
+  - **Stack:** GitHub Action · **Difficulty:** 🟢 Beginner
+
+- **Project Succession Registry**: A registry where maintainers list projects seeking new owners with context and handover docs.
+  - **Why:** Abandoned projects need adopters, and adopters need to find them.
+  - **Stack:** Static site, GitHub issues as database · **Difficulty:** 🟡 Intermediate
+
+- **Commercial Use Survey Kit**: A privacy-respecting survey and landing page to learn which companies depend on your project.
+  - **Why:** Funding asks work better with evidence of commercial use.
+  - **Stack:** Static site, form backend · **Difficulty:** 🟢 Beginner
+
 ## Data & insight on repos
 
 - **Repo Activity Heatmap**: Show which files change together and which change most, to find coupling and hotspots.
@@ -235,3 +355,23 @@
 - **Template Repo Sync**: Propagate updates from a template repository to every repo created from it, as reviewable PRs.
   - **Why:** Repos created from templates never receive later fixes.
   - **Stack:** App, git merge, GitHub API · **Difficulty:** 🟡 Intermediate
+
+- **Issue Response Time SLA Tracker**: Measures time to first response on issues and PRs against a published target.
+  - **Why:** Communities trust projects that respond predictably.
+  - **Stack:** GitHub Action, GraphQL API · **Difficulty:** 🟡 Intermediate
+
+- **Dependency Popularity Ranking in Your Org**: Ranks the most-used external packages across an org's repos.
+  - **Why:** Knowing what you depend on most guides security and sponsorship.
+  - **Stack:** Python, GitHub API, lockfile parsers · **Difficulty:** 🟡 Intermediate
+
+- **Contributor Retention Curves**: Shows how many first-time contributors return for a second and third contribution.
+  - **Why:** Retention says more about community health than star counts.
+  - **Stack:** Python, GitHub API, charts · **Difficulty:** 🟡 Intermediate
+
+- **Language and Framework Drift Report**: Shows how the language mix of an org's repos changes over time.
+  - **Why:** Platform teams need to see which stacks they actually support.
+  - **Stack:** GitHub API, linguist data, charts · **Difficulty:** 🔴 Advanced
+
+- **Churn Hotspot Map**: Combines change frequency and complexity to find files that deserve refactoring.
+  - **Why:** Hotspots predict bugs better than complexity alone.
+  - **Stack:** git log, complexity metrics, treemap · **Difficulty:** 🔴 Advanced

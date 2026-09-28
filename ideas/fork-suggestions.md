@@ -4,7 +4,7 @@
 
 Every repo below was checked via the GitHub API on 2026-09-28: it exists, has a licence and is not archived (unless the idea is to revive it). Star counts are rounded API values from that date. Check the licence yourself before forking; copyleft licences (GPL/AGPL) carry obligations.
 
-57 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
+73 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
 
 ## Contents
 
@@ -130,6 +130,26 @@ Every repo below was checked via the GitHub API on 2026-09-28: it exists, has a 
   - **Why:** GitOps for small homelabs without Kubernetes.
   - **Licence:** MIT · **Stars (2026-09-28):** ~24.5k · **Difficulty:** 🟡 Intermediate
 
+- **[tldr-pages/tldr](https://github.com/tldr-pages/tldr)**: Community-maintained simplified help pages for command-line tools.
+  - **Fork idea:** A company-internal edition with pages for in-house CLIs and scripts, served by existing tldr clients through a private pages source.
+  - **Why:** Internal tools rarely have concise, example-first docs, and the tldr page format is already familiar.
+  - **Licence:** CC-BY-4.0 pages, MIT scripts (per LICENSE.md) · **Stars (2026-09-28):** ~63.8k · **Difficulty:** 🟢 Beginner
+
+- **[typicode/json-server](https://github.com/typicode/json-server)**: A full fake REST API from a single JSON file.
+  - **Fork idea:** Add a generated OpenAPI document and a read-only GraphQL endpoint from the same JSON file.
+  - **Why:** Frontend developers prototyping against GraphQL or needing API docs get the same zero-config experience.
+  - **Licence:** MIT · **Stars (2026-09-28):** ~75.7k · **Difficulty:** 🟢 Beginner
+
+- **[getzola/zola](https://github.com/getzola/zola)**: A fast static site generator in a single Rust binary.
+  - **Fork idea:** A digital-garden edition with backlinks, a note graph view and wiki-link syntax built in.
+  - **Why:** Note-takers publishing gardens want Zola's speed without writing custom templates for backlinks.
+  - **Licence:** EUPL-1.2 · **Stars (2026-09-28):** ~17.5k · **Difficulty:** 🟡 Intermediate
+
+- **[nicolargo/glances](https://github.com/nicolargo/glances)**: Cross-platform system monitoring tool in the terminal and browser.
+  - **Fork idea:** A homelab fleet mode that aggregates many hosts into one TUI view with simple alert rules.
+  - **Why:** Homelabbers run Glances on every box but have no lightweight single view without a full monitoring stack.
+  - **Licence:** LGPL-3.0 (per COPYING) · **Stars (2026-09-28):** ~33.7k · **Difficulty:** 🟡 Intermediate
+
 ## GitHub & open source
 
 - **[mitchellh/vouch](https://github.com/mitchellh/vouch)**: Lets maintainers vouch for trusted contributors.
@@ -229,6 +249,26 @@ Every repo below was checked via the GitHub API on 2026-09-28: it exists, has a 
   - **Why:** Downloading full archives again is impractical on slow or no internet.
   - **Licence:** GPL-3.0 · **Stars (2026-09-28):** ~957 · **Difficulty:** 🔴 Advanced
 
+- **[louislam/uptime-kuma](https://github.com/louislam/uptime-kuma)**: A self-hosted uptime monitoring tool.
+  - **Fork idea:** A multi-tenant agency edition with per-client status pages, monthly PDF uptime reports and client logins.
+  - **Why:** Web agencies monitor dozens of client sites and want to show clients their own results.
+  - **Licence:** MIT · **Stars (2026-09-28):** ~91.9k · **Difficulty:** 🟡 Intermediate
+
+- **[immich-app/immich](https://github.com/immich-app/immich)**: Self-hosted photo and video management.
+  - **Fork idea:** A family-archive edition with approximate dates for scanned photos, people across generations and a family-tree view.
+  - **Why:** Families digitising old albums need genealogy-style organisation that modern photo apps don't model.
+  - **Licence:** AGPL-3.0 · **Stars (2026-09-28):** ~115.2k · **Difficulty:** 🔴 Advanced
+
+- **[jitsi/jitsi-meet](https://github.com/jitsi/jitsi-meet)**: Open-source video conferencing.
+  - **Fork idea:** A telehealth edition with waiting rooms, consent capture, session timers and structured visit notes.
+  - **Why:** Small clinics and therapists want private video visits without enterprise telehealth pricing.
+  - **Licence:** Apache-2.0 · **Stars (2026-09-28):** ~30k · **Difficulty:** 🔴 Advanced
+
+- **[penpot/penpot](https://github.com/penpot/penpot)**: Open-source design and prototyping platform.
+  - **Fork idea:** An offline desktop edition with local project files and a git-friendly export format for design reviews.
+  - **Why:** Designers working offline or in regulated environments can't depend on a hosted server.
+  - **Licence:** MPL-2.0 · **Stars (2026-09-28):** ~60.5k · **Difficulty:** 🔴 Advanced
+
 ## Security & privacy
 
 - **[OWASP/pytm](https://github.com/OWASP/pytm)**: Pythonic threat modelling framework.
@@ -283,6 +323,11 @@ Every repo below was checked via the GitHub API on 2026-09-28: it exists, has a 
   - **Why:** Writers want a distraction-free editor that also handles versioning and publishing.
   - **Licence:** MIT · **Stars (2026-09-28):** ~61.9k · **Difficulty:** 🟡 Intermediate
 
+- **[hakimel/reveal.js](https://github.com/hakimel/reveal.js)**: The HTML presentation framework.
+  - **Fork idea:** A conference-talk edition with a stage timer, audience QR Q&A and export presets for recordings and PDFs.
+  - **Why:** Speakers bolt on the same plugins for every talk.
+  - **Licence:** MIT · **Stars (2026-09-28):** ~72.4k · **Difficulty:** 🟢 Beginner
+
 ## Learning resources
 
 - **[cstack/db_tutorial](https://github.com/cstack/db_tutorial)**: Build a simple SQLite clone from scratch in C.
@@ -314,3 +359,38 @@ Every repo below was checked via the GitHub API on 2026-09-28: it exists, has a 
   - **Fork idea:** Add replication and cluster mode as documented lessons.
   - **Why:** Extends a trusted async Rust teaching codebase into distributed systems.
   - **Licence:** MIT · **Stars (2026-09-28):** ~4.8k · **Difficulty:** 🔴 Advanced
+
+- **[jwasham/coding-interview-university](https://github.com/jwasham/coding-interview-university)**: A multi-month study plan for software engineering interviews.
+  - **Fork idea:** A web edition with per-user progress tracking, spaced review of topics and study-group cohorts.
+  - **Why:** Thousands of people fork the repo just to tick checkboxes in Markdown.
+  - **Licence:** CC-BY-SA-4.0 · **Stars (2026-09-28):** ~362.1k · **Difficulty:** 🟢 Beginner
+
+- **[Chalarangelo/30-seconds-of-code](https://github.com/Chalarangelo/30-seconds-of-code)**: Short code snippets for common development needs.
+  - **Fork idea:** A snippet collection for a language the project doesn't focus on, such as Go or Rust, with every snippet tested in CI.
+  - **Why:** The short, explained-snippet format works for any language and newcomers love it.
+  - **Licence:** CC-BY-4.0 · **Stars (2026-09-28):** ~129.3k · **Difficulty:** 🟢 Beginner
+
+- **[trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)**: A huge collection of sysadmin and security manuals, cheatsheets and tools.
+  - **Fork idea:** A searchable, tagged web edition with an offline mode and link health checks.
+  - **Why:** The list is enormous and hard to navigate as one long Markdown page.
+  - **Licence:** MIT · **Stars (2026-09-28):** ~246.5k · **Difficulty:** 🟢 Beginner
+
+- **[ossu/computer-science](https://github.com/ossu/computer-science)**: A free, self-taught computer science curriculum.
+  - **Fork idea:** A cohort edition with scheduled start dates, weekly check-ins and progress badges per course.
+  - **Why:** Self-learners drop out without accountability; cohorts keep people going.
+  - **Licence:** MIT · **Stars (2026-09-28):** ~209.5k · **Difficulty:** 🟢 Beginner
+
+- **[florinpop17/app-ideas](https://github.com/florinpop17/app-ideas)**: A collection of app ideas grouped by tier to improve coding skills.
+  - **Fork idea:** Add a starter repo and acceptance tests per idea so learners can check their build is complete.
+  - **Why:** Learners abandon ideas when they can't tell whether they've finished them properly.
+  - **Licence:** MIT · **Stars (2026-09-28):** ~97.8k · **Difficulty:** 🟢 Beginner
+
+- **[rust-lang/rustlings](https://github.com/rust-lang/rustlings)**: Small exercises to get used to reading and writing Rust.
+  - **Fork idea:** An embedded-Rust edition whose exercises run on a microcontroller emulator.
+  - **Why:** Embedded Rust has a steep, different learning curve that desktop exercises don't cover.
+  - **Licence:** MIT · **Stars (2026-09-28):** ~64.2k · **Difficulty:** 🟡 Intermediate
+
+- **[TheAlgorithms/Python](https://github.com/TheAlgorithms/Python)**: All algorithms implemented in Python.
+  - **Fork idea:** A visual edition that generates a step-by-step animation page for each algorithm from instrumented runs.
+  - **Why:** Reading code alone rarely builds intuition for how an algorithm behaves.
+  - **Licence:** MIT · **Stars (2026-09-28):** ~225.1k · **Difficulty:** 🟡 Intermediate

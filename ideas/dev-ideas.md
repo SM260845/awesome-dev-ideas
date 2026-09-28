@@ -2,7 +2,7 @@
 
 > **Scope:** Things you import, embed or apply inside a codebase: libraries, testing, code quality, API and data-layer patterns, frontend engineering, observability and docs.
 
-52 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
+107 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
 
 ## Contents
 
@@ -56,6 +56,38 @@
   - **Why:** Synthetic load tests rarely match real behaviour.
   - **Stack:** k6, HAR parsing · **Difficulty:** 🟡 Intermediate · **Prior art:** [grafana/k6](https://github.com/grafana/k6)
 
+- **Golden File Test Helper**: A tiny library for golden-file tests with an `--update` flag and readable, colourised diffs.
+  - **Why:** CLIs, code generators and formatters need output tests without a heavy snapshot framework.
+  - **Stack:** Go or Python library · **Difficulty:** 🟢 Beginner
+
+- **HTTP Cassettes with Secret Scrubbing**: Record outbound HTTP in tests VCR-style and scrub tokens, cookies and emails before the cassette is saved.
+  - **Why:** Committed cassettes are a common source of leaked API keys.
+  - **Stack:** vcrpy plugin or nock wrapper · **Difficulty:** 🟢 Beginner · **Prior art:** [kevin1024/vcrpy](https://github.com/kevin1024/vcrpy)
+
+- **Test Name Linter**: Enforces descriptive test names (behaviour, not "test1") with a configurable pattern.
+  - **Why:** Good test names make CI failures self-explanatory.
+  - **Stack:** ESLint rule or pytest plugin · **Difficulty:** 🟢 Beginner
+
+- **Tests from Markdown Tables**: Write business-rule cases as Markdown tables in the docs and run them as parameterised tests.
+  - **Why:** Rules stay readable for product people and executable for developers.
+  - **Stack:** pytest plugin, Markdown parser · **Difficulty:** 🟢 Beginner
+
+- **Timezone and Locale Test Matrix**: A drop-in CI matrix that runs the suite under several TZ and locale settings.
+  - **Why:** Date and number-format bugs hide until users elsewhere report them.
+  - **Stack:** GitHub Actions matrix, pytest or Jest · **Difficulty:** 🟢 Beginner
+
+- **Postgres Test Isolation Helper**: Gives each test a fresh database cloned from a template, or a rolled-back transaction, automatically.
+  - **Why:** Shared test databases cause order-dependent failures.
+  - **Stack:** Python or Node.js library, Postgres template databases · **Difficulty:** 🟡 Intermediate
+
+- **Test Pyramid Report**: Classifies tests as unit, integration or end-to-end by what they touch and reports count and runtime share.
+  - **Why:** Teams can't see slow end-to-end tests quietly taking over the suite.
+  - **Stack:** Python, coverage data, import analysis · **Difficulty:** 🟡 Intermediate
+
+- **HTTP Client Fault Injector**: Middleware that injects latency, timeouts and 5xx responses into outbound calls in tests and staging.
+  - **Why:** Retry and timeout paths are rarely exercised until production does it for you.
+  - **Stack:** Node.js or Go middleware, YAML config · **Difficulty:** 🟡 Intermediate
+
 ## Code quality & refactoring
 
 - **Dead Code Finder Across Languages**: Find unused exports, files and dependencies in a polyglot repo.
@@ -85,6 +117,34 @@
 - **Duplicate Code Detector with Refactor Hints**: Find near-duplicate code blocks and suggest a shared function signature.
   - **Why:** Copy-paste code diverges and doubles bug fixes.
   - **Stack:** Rust, token-based clone detection · **Difficulty:** 🟡 Intermediate
+
+- **Import Cycle Breaker**: Detects import cycles and suggests the smallest set of moves that breaks them.
+  - **Why:** Cycles slow builds and cause confusing initialisation-order bugs.
+  - **Stack:** Python or TypeScript, graph analysis · **Difficulty:** 🟡 Intermediate
+
+- **Public API Surface Snapshot**: Snapshots a library's exported symbols and signatures and fails CI on unintended breaking changes.
+  - **Why:** Accidental breaking changes are the most common semver violation.
+  - **Stack:** TypeScript compiler API or griffe for Python · **Difficulty:** 🟡 Intermediate · **Prior art:** [mkdocstrings/griffe](https://github.com/mkdocstrings/griffe)
+
+- **Typed Application Errors Kit**: A pattern and tiny library for errors with codes, causes and user-safe messages.
+  - **Why:** Ad-hoc error strings make handling, logging and translation painful.
+  - **Stack:** TypeScript or Go · **Difficulty:** 🟢 Beginner
+
+- **Stale Feature Flag Remover**: Finds flags that have been fully on for weeks and opens a PR deleting the dead branch.
+  - **Why:** Old flags pile up into unreadable conditionals.
+  - **Stack:** tree-sitter, feature flag provider API · **Difficulty:** 🟡 Intermediate
+
+- **Domain Vocabulary Checker**: Finds synonyms used for the same concept (user, account, member) across code and UI strings.
+  - **Why:** Inconsistent domain language confuses new developers and users alike.
+  - **Stack:** Python, identifier splitting, a glossary file · **Difficulty:** 🟡 Intermediate
+
+- **Type Coverage Ratchet**: Tracks the share of typed code and only allows it to go up, per directory.
+  - **Why:** Gradual typing migrations stall without a ratchet.
+  - **Stack:** TypeScript compiler API, mypy reports · **Difficulty:** 🟢 Beginner
+
+- **Comment Rot Detector**: Flags comments whose surrounding code changed far more recently than the comment itself.
+  - **Why:** Stale comments mislead more than missing ones.
+  - **Stack:** git blame, tree-sitter · **Difficulty:** 🟢 Beginner
 
 ## APIs & backends
 
@@ -132,6 +192,42 @@
   - **Why:** Offset pagination skips and duplicates rows under writes.
   - **Stack:** TypeScript and Python, SQL builders · **Difficulty:** 🟡 Intermediate
 
+- **Request ID Propagation Kit**: Middleware that creates a request ID, passes it through HTTP calls and queues, and adds it to every log line.
+  - **Why:** Correlating logs across services is the first step of every debugging session.
+  - **Stack:** Express, FastAPI and Go middleware · **Difficulty:** 🟢 Beginner
+
+- **Problem Details Error Responses**: A library that returns RFC 9457 problem+json errors consistently from any route.
+  - **Why:** Clients get machine-readable errors instead of a different JSON shape per endpoint.
+  - **Stack:** Framework middleware for Express, FastAPI or Spring · **Difficulty:** 🟢 Beginner
+
+- **ETag and Conditional Request Helper**: Middleware that computes ETags and handles If-None-Match and If-Match for caching and safe updates.
+  - **Why:** Cuts bandwidth and prevents lost updates with almost no code.
+  - **Stack:** Express or FastAPI middleware · **Difficulty:** 🟢 Beginner
+
+- **Soft Delete and Audit Trail Mixin**: An ORM mixin that adds deleted_at, created_by and a history table with two lines of code.
+  - **Why:** Almost every business app needs this and rebuilds it badly.
+  - **Stack:** Django, SQLAlchemy or Prisma · **Difficulty:** 🟢 Beginner
+
+- **Request Body Limits Kit**: Middleware that enforces body size, array length and nesting depth limits with clear error messages.
+  - **Why:** Unbounded input is one of the easiest denial-of-service vectors.
+  - **Stack:** Express, FastAPI, Go · **Difficulty:** 🟢 Beginner
+
+- **Circuit Breaker with Built-In Metrics**: A small circuit breaker that exports open, half-open and closed transitions as metrics and logs.
+  - **Why:** Breakers that trip silently are hard to trust or tune.
+  - **Stack:** Go or TypeScript, Prometheus client · **Difficulty:** 🟡 Intermediate
+
+- **GraphQL Query Cost Budget**: Assigns costs to fields and rejects queries that exceed a per-client budget.
+  - **Why:** One deeply nested query can take down a GraphQL backend.
+  - **Stack:** Node.js, graphql-js · **Difficulty:** 🟡 Intermediate
+
+- **Server-Sent Events with Resume**: An SSE helper that handles Last-Event-ID resume, heartbeats and slow clients.
+  - **Why:** SSE is the simplest real-time transport, but resume logic is usually wrong.
+  - **Stack:** Node.js or Go · **Difficulty:** 🟡 Intermediate
+
+- **Saga Orchestrator on Postgres**: Define multi-step business transactions with compensating actions and durable state in Postgres.
+  - **Why:** Services need rollback semantics without adopting a whole workflow platform.
+  - **Stack:** TypeScript or Go, Postgres · **Difficulty:** 🔴 Advanced
+
 ## Data layer
 
 - **Schema Migration Linter for MySQL and SQLite**: Flag risky migrations (locking ALTERs, missing indexes, non-backwards-compatible changes) for databases beyond Postgres.
@@ -157,6 +253,34 @@
 - **Migration Squasher**: Collapse hundreds of old migrations into one baseline, verified against a real database.
   - **Why:** Long migration histories slow tests and new environments.
   - **Stack:** Python or Go, schema dumps, Docker · **Difficulty:** 🟡 Intermediate · **Prior art:** [ariga/atlas](https://github.com/ariga/atlas)
+
+- **N+1 Query Test Guard**: Fails a test when one request triggers a burst of near-identical queries.
+  - **Why:** N+1 queries slip through code review because they look innocent.
+  - **Stack:** Django, SQLAlchemy or ActiveRecord hooks · **Difficulty:** 🟢 Beginner
+
+- **Production Snapshot Anonymiser**: Copy a production database into staging with deterministic masking rules per column.
+  - **Why:** Realistic data for debugging without leaking customer PII.
+  - **Stack:** Python, Postgres, YAML rules · **Difficulty:** 🟡 Intermediate
+
+- **Enum Drift Checker**: Compares enums in code with database check constraints and fails on any mismatch.
+  - **Why:** Adding a value in code but not in the database breaks at runtime.
+  - **Stack:** Python or TypeScript, schema introspection · **Difficulty:** 🟢 Beginner
+
+- **Read Replica Router with Stickiness**: Routes read queries to replicas but keeps a user on the primary for a few seconds after a write.
+  - **Why:** Scaling reads without "I just saved it, where did it go?" bugs.
+  - **Stack:** ORM plugin, Postgres replicas · **Difficulty:** 🔴 Advanced
+
+- **Index Advisor from Slow Query Logs**: Parses slow query logs and proposes indexes with an estimated benefit and write cost.
+  - **Why:** Most teams add indexes by guesswork.
+  - **Stack:** Python, pg_stat_statements, HypoPG · **Difficulty:** 🔴 Advanced · **Prior art:** [HypoPG/hypopg](https://github.com/HypoPG/hypopg)
+
+- **Money Type Library**: A decimal money type with currencies, rounding modes and allocation that never loses a cent.
+  - **Why:** Floats for money cause real, expensive bugs.
+  - **Stack:** TypeScript or Python · **Difficulty:** 🟢 Beginner
+
+- **Bitemporal Tables Helper**: Adds valid-time and transaction-time history to tables with "as of" query helpers.
+  - **Why:** Finance, insurance and HR need to know what was true and when it was known.
+  - **Stack:** Postgres, SQLAlchemy or Prisma extension · **Difficulty:** 🔴 Advanced
 
 ## Frontend & UX engineering
 
@@ -188,6 +312,42 @@
   - **Why:** Optimistic UIs feel fast but are often buggy on failure.
   - **Stack:** TypeScript, React/Svelte adapters · **Difficulty:** 🟡 Intermediate
 
+- **Skeleton Loader Generator**: Generates skeleton placeholders from a component's real rendered layout.
+  - **Why:** Hand-written skeletons drift from the layouts they imitate.
+  - **Stack:** React, DOM measurement, Storybook addon · **Difficulty:** 🟡 Intermediate
+
+- **Focus Management Utilities**: Tiny helpers for focus traps, restoring focus after dialogs and announcing route changes.
+  - **Why:** Keyboard and screen-reader users get lost in single-page apps.
+  - **Stack:** TypeScript, framework-agnostic · **Difficulty:** 🟢 Beginner
+
+- **Design Token Linter**: Flags hard-coded colours, spacing and font sizes that should use design tokens.
+  - **Why:** Tokens only pay off if people actually use them.
+  - **Stack:** Stylelint plugin, ESLint for CSS-in-JS · **Difficulty:** 🟢 Beginner · **Prior art:** [stylelint/stylelint](https://github.com/stylelint/stylelint)
+
+- **Client Error Boundary Reporter**: An error boundary that captures component stack and recent user actions and posts them to your own endpoint.
+  - **Why:** Small teams want crash context without a paid monitoring tool.
+  - **Stack:** React, a tiny ingest endpoint · **Difficulty:** 🟢 Beginner
+
+- **Offline Form Queue**: Stores form submissions while offline and replays them with conflict hints when the connection returns.
+  - **Why:** Field workers lose data on flaky mobile connections.
+  - **Stack:** Service worker, IndexedDB · **Difficulty:** 🟡 Intermediate
+
+- **Reduced Motion Audit**: Finds animations that ignore prefers-reduced-motion and patches them with a shared mixin.
+  - **Why:** Motion can cause real discomfort; the fix is small but rarely applied.
+  - **Stack:** PostCSS plugin, Playwright check · **Difficulty:** 🟢 Beginner
+
+- **URL State Sync Hook**: Keeps filters, tabs and pagination in the URL with typed parsing and sensible history behaviour.
+  - **Why:** Shareable, back-button-friendly UI state with no custom plumbing.
+  - **Stack:** React or Vue, Zod · **Difficulty:** 🟢 Beginner
+
+- **Hydration Mismatch Pinpointer**: A dev-mode tool that names the exact node and cause of each SSR hydration mismatch.
+  - **Why:** Hydration errors are cryptic and eat hours of debugging.
+  - **Stack:** React or Next.js dev plugin · **Difficulty:** 🟡 Intermediate
+
+- **Micro-Frontend Contract Tests**: Verifies that independently deployed micro-frontends still agree on events, routes and shared props.
+  - **Why:** Independent deploys break integrations nobody tested together.
+  - **Stack:** TypeScript, Pact-style contracts, Playwright · **Difficulty:** 🔴 Advanced
+
 ## Observability & reliability
 
 - **Structured Logging Conventions Kit**: Logger wrappers and lint rules that enforce consistent fields (request ID, user ID, error code).
@@ -214,6 +374,38 @@
   - **Why:** Bad shutdowns drop requests during every deploy.
   - **Stack:** Go, load generator, container runtime · **Difficulty:** 🟢 Beginner
 
+- **Health Check Endpoint Kit**: Standard liveness and readiness endpoints with dependency checks, timeouts and caching.
+  - **Why:** Home-grown health checks either lie or cascade failures across services.
+  - **Stack:** Go, Node.js and Python libraries · **Difficulty:** 🟢 Beginner
+
+- **Retry Budget Library**: Caps client retries at a percentage of normal traffic to prevent retry storms.
+  - **Why:** Naive retries turn a small outage into a big one.
+  - **Stack:** Go or Java library · **Difficulty:** 🟡 Intermediate
+
+- **Log Sampling by Severity and Route**: Keeps every error, samples noisy success logs per route and preserves counts.
+  - **Why:** Logging bills explode on hot endpoints.
+  - **Stack:** structlog or pino processor · **Difficulty:** 🟢 Beginner
+
+- **Deadline Propagation Helper**: Passes request deadlines through HTTP and gRPC calls so downstream work stops when callers give up.
+  - **Why:** Work done after a timeout overloads services for no benefit.
+  - **Stack:** Go context, Node.js AbortSignal · **Difficulty:** 🔴 Advanced
+
+- **Canary Analysis Library**: Compares canary and baseline metrics with statistical tests and returns a go/no-go verdict.
+  - **Why:** Eyeballing dashboards during rollouts misses slow regressions.
+  - **Stack:** Python, SciPy, Prometheus API · **Difficulty:** 🔴 Advanced
+
+- **Crash Reporter for CLI Tools**: Opt-in crash reports for command-line tools with scrubbed stack traces and a prefilled GitHub issue.
+  - **Why:** CLI authors rarely hear about crashes; users rarely write good bug reports.
+  - **Stack:** Python or Go library · **Difficulty:** 🟢 Beginner
+
+- **Memory Leak Canary Test**: A test helper that runs a code path thousands of times and fails if heap usage keeps growing.
+  - **Why:** Leaks are cheap to catch in CI and expensive to find in production.
+  - **Stack:** Node.js or Python, heap snapshots · **Difficulty:** 🔴 Advanced
+
+- **Graceful Degradation Toggles**: Named kill switches that turn off expensive features under load, with a tiny admin page.
+  - **Why:** Shedding non-essential work keeps the core product up during spikes.
+  - **Stack:** TypeScript or Go, Redis · **Difficulty:** 🟡 Intermediate
+
 ## Docs & DX
 
 - **Docs from Tests**: Generate usage docs from well-named tests and examples so docs stay correct.
@@ -235,3 +427,31 @@
 - **Package Publish Checker**: Verify a package's exports, types and files before publishing to npm or PyPI.
   - **Why:** Broken publishes are common and embarrassing.
   - **Stack:** publint, arethetypeswrong, twine check · **Difficulty:** 🟢 Beginner · **Prior art:** [publint/publint](https://github.com/publint/publint)
+
+- **ADR Index Generator**: Architecture decision records with a generated index, status badges and "superseded by" links.
+  - **Why:** Decisions get lost in chat; ADRs only work if they're easy to browse.
+  - **Stack:** Markdown, Node.js or Python script · **Difficulty:** 🟢 Beginner
+
+- **Env Var Documentation Generator**: Scans code for environment variable reads and generates a documented .env.example.
+  - **Why:** New developers waste hours finding which variables an app needs.
+  - **Stack:** Python or TypeScript, AST parsing · **Difficulty:** 🟢 Beginner
+
+- **Error Code Catalogue**: Every error code in the codebase links to a docs page generated from source annotations.
+  - **Why:** Users and support staff can look up an error instead of opening a ticket.
+  - **Stack:** Docstring annotations, static site generator · **Difficulty:** 🟢 Beginner
+
+- **Docs Page Feedback Widget**: A "was this helpful?" widget that files votes and comments as GitHub issues per page.
+  - **Why:** Docs teams need signal on which pages fail readers.
+  - **Stack:** JavaScript widget, GitHub API · **Difficulty:** 🟢 Beginner
+
+- **Interactive API Tutorial Builder**: Turns a sequence of real API calls into a step-by-step tutorial readers can run against a sandbox.
+  - **Why:** Hands-on tutorials convert far better than static reference docs.
+  - **Stack:** TypeScript, OpenAPI, sandbox tokens · **Difficulty:** 🟡 Intermediate
+
+- **Code Owner Hints in Docs**: Shows the owning team and a contact link on every internal docs page, pulled from CODEOWNERS.
+  - **Why:** Readers with questions don't know who to ask.
+  - **Stack:** Static site plugin, CODEOWNERS parser · **Difficulty:** 🟢 Beginner
+
+- **Deprecation Timeline Page**: Generates a public page of deprecated APIs, their replacements and removal dates from code annotations.
+  - **Why:** Users need one place to plan upgrades.
+  - **Stack:** Annotations, static site generator · **Difficulty:** 🟢 Beginner

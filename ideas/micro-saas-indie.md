@@ -2,7 +2,7 @@
 
 > **Scope:** Small web or mobile products a solo developer can ship and charge for: developer SaaS, niche AI tools, local-business and vertical apps.
 
-52 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
+97 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
 
 ## Contents
 
@@ -48,6 +48,30 @@
   - **Why:** Failed searches reveal missing documentation.
   - **Stack:** Meilisearch, crawler, embeddable UI · **Difficulty:** 🟡 Intermediate · **Prior art:** [meilisearch/meilisearch](https://github.com/meilisearch/meilisearch)
 
+- **Link Preview Checker**: Paste a URL and see how it previews on each social network and chat app, with fixes for broken tags.
+  - **Why:** Broken link previews quietly kill click-through on every share.
+  - **Stack:** Next.js, server-side fetch, Open Graph parser · **Difficulty:** 🟢 Beginner
+
+- **README Badge Generator Service**: Custom badges for any JSON endpoint or metric with caching and a visual designer.
+  - **Why:** Maintainers want bespoke badges without hosting their own service.
+  - **Stack:** Node.js, SVG templates, edge cache · **Difficulty:** 🟢 Beginner
+
+- **Form Backend for Static Sites**: An endpoint static sites post forms to, with spam filtering, email notifications and CSV export.
+  - **Why:** Static sites need forms without running a server.
+  - **Stack:** Go or Node.js, Postgres, hCaptcha · **Difficulty:** 🟢 Beginner
+
+- **PDF Invoice Generation API**: Send JSON and get back a branded, tax-compliant PDF invoice with templates per country.
+  - **Why:** Developers rebuild invoice PDFs in every SaaS they ship.
+  - **Stack:** Go, Typst, S3-compatible storage · **Difficulty:** 🟢 Beginner
+
+- **Environment Config Diff Service**: Compares env vars across dev, staging and production and flags missing or mismatched keys without storing values.
+  - **Why:** Missing config is a top cause of failed deploys.
+  - **Stack:** Go, hashed key comparison, web UI · **Difficulty:** 🟡 Intermediate
+
+- **Dependency Upgrade Digest**: A weekly email per repo listing which dependencies have updates, with breaking-change notes summarised.
+  - **Why:** Bots open too many PRs; a digest is easier to plan around.
+  - **Stack:** Node.js, GitHub API, changelog parsing · **Difficulty:** 🟡 Intermediate
+
 ## AI-powered niche tools
 
 - **Contract Clause Checker for Freelancers**: Upload a client contract and get risky clauses flagged with plain-language explanations.
@@ -81,6 +105,30 @@
 - **Accessibility Fix Suggestions for Shopify Stores**: Scan a store theme for accessibility issues and propose exact Liquid template fixes.
   - **Why:** Store owners face accessibility complaints but can't code.
   - **Stack:** Node, axe-core, Shopify API · **Difficulty:** 🟡 Intermediate
+
+- **Plant Care Diagnosis from Photos**: Snap a sick houseplant and get likely causes and a care plan with follow-up reminders.
+  - **Why:** Plant owners guess and over-water; a paid diagnosis app has clear demand.
+  - **Stack:** React Native, vision model API · **Difficulty:** 🟢 Beginner
+
+- **Wedding Speech Coach**: Drafts and rehearses a speech with timing feedback and filler-word counts from a recording.
+  - **Why:** Best men and bridesmaids panic about speeches once and pay happily.
+  - **Stack:** Next.js, Whisper API, LLM · **Difficulty:** 🟢 Beginner
+
+- **Pet Adoption Listing Writer**: Shelters paste notes and photos and get warm, accurate adoption listings in their house style.
+  - **Why:** Shelter staff are overworked; better listings mean faster adoptions.
+  - **Stack:** Next.js, vision model, templates · **Difficulty:** 🟢 Beginner
+
+- **Tender Response Drafting for Small Firms**: Drafts responses to government tenders from a firm's past answers, flagging gaps against criteria.
+  - **Why:** Small firms lose tenders because writing responses takes weeks.
+  - **Stack:** Python, retrieval over past bids, web UI · **Difficulty:** 🟡 Intermediate
+
+- **Meeting Minutes for Strata and HOA Committees**: Turns recordings into minutes in the legally required format with motions and votes.
+  - **Why:** Volunteer committee secretaries dread minute-taking.
+  - **Stack:** Whisper, LLM structured output, PDF export · **Difficulty:** 🟡 Intermediate
+
+- **Product Photo Background Studio**: Removes backgrounds and places products on consistent, marketplace-compliant backdrops in bulk.
+  - **Why:** Small online sellers need clean photos without a studio.
+  - **Stack:** Python, background removal model, S3 · **Difficulty:** 🟢 Beginner
 
 ## Local business & trades
 
@@ -120,6 +168,30 @@
   - **Why:** Trades miss calls while on the tools and lose jobs to competitors.
   - **Stack:** Python, telephony API, speech models, Calendar API · **Difficulty:** 🟡 Intermediate
 
+- **Loyalty Stamp Card App**: Digital stamp cards for cafés with QR scanning and no customer app download.
+  - **Why:** Paper loyalty cards get lost; big loyalty platforms are overkill.
+  - **Stack:** PWA, Postgres, QR codes · **Difficulty:** 🟢 Beginner
+
+- **Salon Waitlist and Walk-In Queue**: Walk-in customers join a queue by QR and get an SMS when it's nearly their turn.
+  - **Why:** Barbers and nail salons lose walk-ins who won't wait in a crowded shop.
+  - **Stack:** Next.js, Twilio, Postgres · **Difficulty:** 🟢 Beginner
+
+- **Cleaning Business Job Checklists**: Room-by-room checklists with photo proof sent to the client after each clean.
+  - **Why:** Cleaners get disputes they can't disprove.
+  - **Stack:** React Native, image storage · **Difficulty:** 🟢 Beginner
+
+- **Tutor Scheduling and Payments**: Lesson booking, recurring payments and progress notes for independent tutors.
+  - **Why:** Tutors chase payments and juggle schedules by text message.
+  - **Stack:** Rails or Laravel, Stripe · **Difficulty:** 🟢 Beginner
+
+- **Mobile Mechanic Job Router**: Plans the day's route for mobile mechanics with parts lists per job.
+  - **Why:** Mobile trades waste hours driving in inefficient orders.
+  - **Stack:** Next.js, routing API, Postgres · **Difficulty:** 🟡 Intermediate
+
+- **Gym Class Booking with Waitlists**: Class booking with capped spots, automatic waitlist promotion and no-show tracking.
+  - **Why:** Boutique gyms pay heavily for booking software with features they don't use.
+  - **Stack:** Django, Stripe, SMS · **Difficulty:** 🟡 Intermediate
+
 ## Creator & content tools
 
 - **Link-in-Bio with Analytics You Own**: Self-hostable link page with privacy-friendly analytics and custom domains.
@@ -145,6 +217,30 @@
 - **Stock Photo Licence Tracker**: Track where licensed images are used and when licences expire.
   - **Why:** Businesses get invoices for unlicensed image use.
   - **Stack:** Next.js, image hashing, reminders · **Difficulty:** 🟡 Intermediate
+
+- **Newsletter Sponsorship Marketplace**: Matches small newsletters with sponsors, handling booking, invoicing and performance reports.
+  - **Why:** Small newsletters can't find sponsors and sponsors can't find niche audiences.
+  - **Stack:** Next.js, Stripe Connect, Postgres · **Difficulty:** 🟡 Intermediate
+
+- **Podcast Guest Booking Page**: A page where potential guests pitch, pick a slot and receive a prep kit automatically.
+  - **Why:** Podcasters handle guest logistics by email threads.
+  - **Stack:** SvelteKit, calendar APIs · **Difficulty:** 🟢 Beginner
+
+- **Thumbnail A/B Tester for Videos**: Rotates video thumbnails and titles and reports which variant earns more clicks.
+  - **Why:** Thumbnails decide views; creators test by guesswork.
+  - **Stack:** Node.js, YouTube Data API · **Difficulty:** 🟡 Intermediate
+
+- **Content Repurposing Calendar**: Plans how one long piece becomes clips, threads and posts across a month.
+  - **Why:** Creators produce long content but struggle to distribute it.
+  - **Stack:** Next.js, Postgres, calendar views · **Difficulty:** 🟢 Beginner
+
+- **Digital Download Store for Musicians**: Sell stems, sample packs and presets with licence files and download limits.
+  - **Why:** Musicians give large cuts to marketplaces for simple file sales.
+  - **Stack:** Next.js, Stripe, S3 signed URLs · **Difficulty:** 🟢 Beginner
+
+- **Watermarking Service for Photographers**: Batch-watermark galleries with visible or invisible marks and track where images appear.
+  - **Why:** Photographers lose work to uncredited reposts.
+  - **Stack:** Python, Pillow, reverse image search API · **Difficulty:** 🔴 Advanced
 
 ## Productivity apps
 
@@ -176,6 +272,30 @@
   - **Why:** Travellers juggle documents across apps and emails.
   - **Stack:** Mobile app, encrypted local storage · **Difficulty:** 🟢 Beginner
 
+- **Screen-Free Kids' Routine Chart**: A printable and tablet-friendly routine chart with picture cards and rewards.
+  - **Why:** Parents want routines for young kids without handing them screens.
+  - **Stack:** SvelteKit, print CSS · **Difficulty:** 🟢 Beginner
+
+- **Gift Idea Tracker**: Save gift ideas for people throughout the year with price watching before birthdays.
+  - **Why:** Everyone forgets the perfect idea they had months ago.
+  - **Stack:** React Native, price scraping · **Difficulty:** 🟢 Beginner
+
+- **Home Maintenance Scheduler**: Tracks filter changes, gutter cleaning and appliance services with reminders and history.
+  - **Why:** Home owners forget maintenance until something breaks.
+  - **Stack:** Flutter, SQLite, notifications · **Difficulty:** 🟢 Beginner
+
+- **Freelancer Time-to-Invoice**: Tracks time per client and turns it into invoices with one click, including late-fee rules.
+  - **Why:** Freelancers leak income by not billing all their hours.
+  - **Stack:** Next.js, Stripe · **Difficulty:** 🟢 Beginner
+
+- **Shared Grocery List with Aisle Sorting**: A shared list that sorts items by the aisle order of your usual store.
+  - **Why:** Couples and families duplicate purchases and zig-zag through shops.
+  - **Stack:** React Native, realtime sync · **Difficulty:** 🟢 Beginner
+
+- **Document Expiry Tracker for Families**: Tracks passports, licences and insurance for the whole family with renewal reminders.
+  - **Why:** Expired passports ruin trips every holiday season.
+  - **Stack:** PWA, encrypted storage · **Difficulty:** 🟢 Beginner
+
 ## B2B vertical niches
 
 - **Compliance Checklist for Small Clinics**: Track required certifications, audits and staff training deadlines.
@@ -206,6 +326,38 @@
   - **Why:** Customers can't find trucks; trucks lose sales to queues.
   - **Stack:** React Native, maps, Stripe · **Difficulty:** 🟡 Intermediate
 
+- **Farm Spray Record Keeping**: Log chemical applications with weather conditions for compliance audits.
+  - **Why:** Farmers must keep spray records and still do it on paper.
+  - **Stack:** React Native offline, weather API · **Difficulty:** 🟡 Intermediate
+
+- **Dental Recall Reminders**: Automated patient recall reminders with online rebooking for small dental practices.
+  - **Why:** Missed recalls are lost revenue for practices without big software.
+  - **Stack:** Django, Twilio, calendar integration · **Difficulty:** 🟡 Intermediate
+
+- **Vet Clinic Vaccine Reminder Cards**: Sends pet owners vaccine and check-up reminders with branded digital cards.
+  - **Why:** Clinics lose repeat visits when owners forget.
+  - **Stack:** Next.js, email and SMS · **Difficulty:** 🟢 Beginner
+
+- **Security Guard Patrol Logger**: Guards scan NFC tags on patrol routes; managers see proof of patrols and incident reports.
+  - **Why:** Small security firms rely on paper logs clients don't trust.
+  - **Stack:** React Native NFC, Postgres · **Difficulty:** 🟡 Intermediate
+
+- **Driving School Lesson Tracker**: Tracks learner progress against test criteria with instructor notes and bookings.
+  - **Why:** Instructors track progress on paper cards.
+  - **Stack:** Flutter, Postgres · **Difficulty:** 🟢 Beginner
+
+- **Brewery Batch Tracker**: Records batches, gravity readings and tank usage for small craft breweries with tax reports.
+  - **Why:** Craft brewers juggle spreadsheets for compliance and planning.
+  - **Stack:** Django, Postgres, charts · **Difficulty:** 🟡 Intermediate
+
+- **Wholesale Order Portal for Small Producers**: Lets retailers reorder from a small producer's catalogue with tiered pricing.
+  - **Why:** Small producers take wholesale orders by phone and email.
+  - **Stack:** Next.js, Stripe invoicing · **Difficulty:** 🔴 Advanced
+
+- **Commercial Kitchen Temperature Logs**: Wireless probes and a checklist app that log fridge temperatures for food safety audits.
+  - **Why:** Paper temperature logs are faked and fail inspections.
+  - **Stack:** ESP32 probes, web app, alerts · **Difficulty:** 🔴 Advanced
+
 ## Indie app mechanics
 
 - **Paywall and Pricing Experiments Kit**: Run pricing-page experiments with proper statistics and revenue attribution.
@@ -235,3 +387,31 @@
 - **Lifetime Deal Licence Server**: Issue, validate and revoke licence keys for desktop and self-hosted apps.
   - **Why:** Indie apps selling one-time licences need key management.
   - **Stack:** Go, Ed25519 signatures, Postgres · **Difficulty:** 🟡 Intermediate · **Prior art:** [keygen-sh/keygen-api](https://github.com/keygen-sh/keygen-api)
+
+- **Trial Expiry Email Sequences**: A drop-in service for trial-ending emails with personalised usage stats.
+  - **Why:** Most indie SaaS lose conversions at trial end with generic emails.
+  - **Stack:** Node.js, email API, webhooks · **Difficulty:** 🟢 Beginner
+
+- **Referral Credits Engine**: Gives both parties credits on referral with fraud checks and a hosted dashboard.
+  - **Why:** Referral programmes are valuable but tedious to build safely.
+  - **Stack:** TypeScript, Postgres, Stripe · **Difficulty:** 🟡 Intermediate
+
+- **Pricing Page Localiser**: Shows prices in local currency with purchasing power parity discounts.
+  - **Why:** International customers bounce when prices feel too high.
+  - **Stack:** Edge functions, IP geolocation, Stripe · **Difficulty:** 🟡 Intermediate
+
+- **Cancellation Flow with Save Offers**: A hosted cancel flow that asks why and offers pauses or discounts before churn.
+  - **Why:** A good cancel flow saves a meaningful share of churn.
+  - **Stack:** Next.js, Stripe Billing · **Difficulty:** 🔴 Advanced
+
+- **App Store Review Responder**: Drafts replies to App Store and Play Store reviews and routes bug reports to your tracker.
+  - **Why:** Indie developers ignore reviews because replying is tedious.
+  - **Stack:** Node.js, store APIs, LLM · **Difficulty:** 🔴 Advanced
+
+- **Usage-Based Upgrade Nudges**: Detects users hitting plan limits and triggers in-app upgrade prompts at the right moment.
+  - **Why:** Upgrade prompts at the moment of need convert far better.
+  - **Stack:** TypeScript SDK, event stream · **Difficulty:** 🔴 Advanced
+
+- **Multi-Tenant Custom Domains Service**: Lets your customers attach their own domains with automatic TLS.
+  - **Why:** Custom domains are a common paid feature that's painful to build.
+  - **Stack:** Caddy on-demand TLS, Go API · **Difficulty:** 🔴 Advanced

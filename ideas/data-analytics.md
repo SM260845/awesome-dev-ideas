@@ -2,7 +2,7 @@
 
 > **Scope:** Pipelines, data quality, BI, product analytics, datasets, visualisation, notebooks and observability data.
 
-52 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
+82 ideas · Difficulty: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced · [Back to README](../README.md)
 
 ## Contents
 
@@ -45,6 +45,22 @@
   - **Why:** Learning and prototyping modern data stacks without cloud costs.
   - **Stack:** Docker, DuckDB, dbt, Superset · **Difficulty:** 🟢 Beginner · **Prior art:** [duckdb/duckdb](https://github.com/duckdb/duckdb)
 
+- **Google Sheets to DuckDB Sync**: Pulls chosen Google Sheets into a local DuckDB file on a schedule with type inference and history.
+  - **Why:** Small teams run their business in sheets but want SQL over it.
+  - **Stack:** Python, Google Sheets API, DuckDB · **Difficulty:** 🟢 Beginner · **Prior art:** [duckdb/duckdb](https://github.com/duckdb/duckdb)
+
+- **Email Attachment Ingestion Pipeline**: Watches an inbox for CSV and Excel reports from partners and loads them into a warehouse with validation.
+  - **Why:** Many partners still send data only as email attachments.
+  - **Stack:** Python, IMAP, dlt · **Difficulty:** 🟢 Beginner · **Prior art:** [dlt-hub/dlt](https://github.com/dlt-hub/dlt)
+
+- **Parquet Converter with Schema Report**: Converts folders of CSV and JSON to partitioned Parquet and reports inferred types and nulls.
+  - **Why:** Parquet makes analysis faster, but converting messy files is fiddly.
+  - **Stack:** Python, PyArrow · **Difficulty:** 🟡 Intermediate
+
+- **Backfill Planner**: Plans safe backfills for incremental models by date range, cost estimate and dependency order.
+  - **Why:** Backfills are risky, expensive and done by hand.
+  - **Stack:** Python, dbt manifest, warehouse APIs · **Difficulty:** 🔴 Advanced
+
 ## Data quality & observability
 
 - **Freshness and Volume Monitor**: Alert when tables stop updating or row counts deviate from normal.
@@ -66,6 +82,22 @@
 - **PII Scanner for Warehouses**: Scan columns for personal data patterns and tag them for access policies.
   - **Why:** Personal data spreads into analytics tables unnoticed.
   - **Stack:** Python, regex and classifiers, warehouse APIs · **Difficulty:** 🟡 Intermediate
+
+- **Duplicate Record Finder**: Finds fuzzy duplicate customers, products or addresses in a table and suggests merges.
+  - **Why:** Duplicate records skew counts and annoy customers.
+  - **Stack:** Python, splink or recordlinkage, DuckDB · **Difficulty:** 🟢 Beginner · **Prior art:** [moj-analytical-services/splink](https://github.com/moj-analytical-services/splink)
+
+- **Null and Outlier Profiler**: A one-command profile of any table: null rates, outliers, cardinality and value histograms.
+  - **Why:** Analysts profile data by hand before every analysis.
+  - **Stack:** Python, DuckDB, HTML report · **Difficulty:** 🟢 Beginner
+
+- **Dashboard Usage Audit**: Shows which dashboards nobody opens so teams can archive them.
+  - **Why:** BI tools fill up with abandoned dashboards that still cost compute.
+  - **Stack:** Python, BI tool APIs · **Difficulty:** 🟡 Intermediate
+
+- **Upstream Change Impact Report**: When a source table's schema changes, lists every downstream model, dashboard and owner affected.
+  - **Why:** Schema changes break reports that nobody knew depended on them.
+  - **Stack:** Python, dbt manifest, BI metadata · **Difficulty:** 🔴 Advanced
 
 ## BI & dashboards
 
@@ -93,6 +125,18 @@
   - **Why:** Office screens often show expired login pages.
   - **Stack:** Electron or browser kiosk, config · **Difficulty:** 🟢 Beginner
 
+- **KPI Email Digest**: Sends a weekly email with the five metrics that matter, each with trend and a plain-language note.
+  - **Why:** Executives don't open dashboards but do read email.
+  - **Stack:** Python, SQL, email templates · **Difficulty:** 🟢 Beginner
+
+- **Goal Tracker Dashboard for Small Teams**: Set quarterly numeric goals and track progress automatically from SQL queries.
+  - **Why:** Goal tracking lives in slides that are out of date.
+  - **Stack:** Metabase or Evidence, SQL · **Difficulty:** 🟢 Beginner · **Prior art:** [evidence-dev/evidence](https://github.com/evidence-dev/evidence)
+
+- **Dashboard as Code Starter**: Define charts and dashboards in version-controlled files with previews on PRs.
+  - **Why:** Clicked-together dashboards can't be reviewed or reproduced.
+  - **Stack:** Evidence or Observable Framework, GitHub Actions · **Difficulty:** 🟡 Intermediate
+
 ## Product & web analytics
 
 - **Opt-In Usage Analytics for APIs and CLIs**: Privacy-respecting usage stats per endpoint or command, with opt-in and data minimisation built in.
@@ -118,6 +162,22 @@
 - **UTM and Referrer Cleaner**: Normalise messy campaign parameters and referrers into clean channel groupings.
   - **Why:** Marketing attribution is ruined by inconsistent tags.
   - **Stack:** SQL, dbt macros · **Difficulty:** 🟢 Beginner
+
+- **Cookieless Pageview Counter**: A tiny self-hosted pageview counter with no cookies, no personal data and a public stats page.
+  - **Why:** Personal sites want basic stats without consent banners.
+  - **Stack:** Go, SQLite, 1 KB script · **Difficulty:** 🟢 Beginner
+
+- **Onboarding Funnel Analyzer**: Builds a funnel from signup events and highlights the step with the biggest drop-off by segment.
+  - **Why:** Founders know users drop off but not where.
+  - **Stack:** SQL, Python, charts · **Difficulty:** 🟢 Beginner
+
+- **Retention Cohort Generator**: Turns an event table into weekly retention cohorts with a clean heatmap.
+  - **Why:** Cohort analysis is essential and error-prone to build by hand.
+  - **Stack:** SQL, DuckDB, Plotly · **Difficulty:** 🟢 Beginner
+
+- **Feature Usage Correlation with Churn**: Finds which features retained users use more than churned users, with confidence intervals.
+  - **Why:** Product teams need evidence for what to double down on.
+  - **Stack:** Python, pandas, statsmodels · **Difficulty:** 🟡 Intermediate
 
 ## Datasets & scraping for insight
 
@@ -157,6 +217,26 @@
   - **Why:** A fun, motivating way to practise the full modelling workflow.
   - **Stack:** Python, scikit-learn, DuckDB · **Difficulty:** 🟡 Intermediate
 
+- **Grocery Price Tracker for Your Area**: Tracks prices of a basket of groceries across local supermarkets over time.
+  - **Why:** Households want real inflation numbers for their own shopping.
+  - **Stack:** Python, Playwright, SQLite, charts · **Difficulty:** 🟢 Beginner
+
+- **Conference Talk Topic Trends**: Scrapes conference schedules to chart which tech topics rise and fall year over year.
+  - **Why:** Shows real industry interest beyond hype on social media.
+  - **Stack:** Python, scraping, NLP topic modelling · **Difficulty:** 🟡 Intermediate
+
+- **Open Source Licence Trends Dataset**: Tracks licence choices in new repos over time by language and ecosystem.
+  - **Why:** Useful for researchers and anyone choosing a licence.
+  - **Stack:** Python, GitHub API, Parquet · **Difficulty:** 🟡 Intermediate
+
+- **Public Holiday and School Term Dataset**: A clean, versioned dataset of holidays and school terms by region for forecasting.
+  - **Why:** Demand forecasting needs calendar features that are hard to gather.
+  - **Stack:** Python, CSV and Parquet releases · **Difficulty:** 🟢 Beginner
+
+- **Satellite Image Change Detector**: Detects land changes like new construction or deforestation from free satellite imagery.
+  - **Why:** Journalists and researchers need change evidence at scale.
+  - **Stack:** Python, Sentinel-2 data, rasterio · **Difficulty:** 🔴 Advanced
+
 ## Visualisation
 
 - **Chart Linter**: Flag misleading charts: truncated axes, dual axes, rainbow palettes and unlabeled units.
@@ -182,6 +262,22 @@
 - **Diagram from Data Model**: Generate ER diagrams from a live database with change history.
   - **Why:** Schema docs go stale fast.
   - **Stack:** Python, SQLAlchemy reflection, Mermaid · **Difficulty:** 🟢 Beginner
+
+- **Calendar Heatmap Generator**: Turns any dated CSV into a GitHub-style calendar heatmap as SVG or PNG.
+  - **Why:** People love this visual for habits, sales or commits.
+  - **Stack:** Python or JavaScript, SVG · **Difficulty:** 🟢 Beginner
+
+- **Sankey Diagram from Transactions**: Visualises where money goes from income to categories as an interactive Sankey diagram.
+  - **Why:** Budget flows are easiest to understand as flows.
+  - **Stack:** JavaScript, D3 · **Difficulty:** 🟢 Beginner · **Prior art:** [d3/d3](https://github.com/d3/d3)
+
+- **Uncertainty Visualisation Kit**: Chart components for confidence intervals, fan charts and hypothetical outcome plots.
+  - **Why:** Charts that hide uncertainty mislead decision makers.
+  - **Stack:** Vega-Lite or Observable Plot · **Difficulty:** 🟡 Intermediate
+
+- **Animated Bar Chart Race Maker**: Upload a time series and export a bar chart race video.
+  - **Why:** Popular for storytelling and social posts with minimal effort.
+  - **Stack:** JavaScript, D3, video export · **Difficulty:** 🟢 Beginner
 
 ## Notebooks & analysis tools
 
@@ -217,6 +313,18 @@
   - **Why:** Event data rots into inconsistent names and types.
   - **Stack:** TypeScript, JSON Schema, event stream · **Difficulty:** 🟡 Intermediate
 
+- **Survey Weighting Tool**: Reweights survey responses to match population demographics with raking and shows estimates before and after.
+  - **Why:** Unweighted surveys mislead decisions.
+  - **Stack:** Python, pandas, iterative proportional fitting · **Difficulty:** 🟡 Intermediate
+
+- **Notebook Reproducibility Checker**: Re-runs notebooks in a clean environment and reports cells that fail or produce different output.
+  - **Why:** Notebooks rot and results can't be reproduced.
+  - **Stack:** Python, nbclient, Docker · **Difficulty:** 🟡 Intermediate
+
+- **Statistical Test Picker**: Asks a few questions about your data and recommends the right statistical test with code.
+  - **Why:** Picking the wrong test is a common analysis mistake.
+  - **Stack:** Web app, Python code templates · **Difficulty:** 🟢 Beginner
+
 ## Observability data
 
 - **Logs to Metrics Converter**: Derive metrics from log patterns without changing application code.
@@ -238,3 +346,15 @@
 - **Kubernetes Cost Dashboard**: Break down cluster costs by namespace, team and workload.
   - **Why:** Shared clusters hide who's spending what.
   - **Stack:** OpenCost, Grafana · **Difficulty:** 🟡 Intermediate · **Prior art:** [opencost/opencost](https://github.com/opencost/opencost)
+
+- **Log Volume Budget by Service**: Shows which services produce the most log bytes and what that costs per month.
+  - **Why:** Logging bills grow with no clear owner.
+  - **Stack:** Python, log platform APIs · **Difficulty:** 🟡 Intermediate
+
+- **Alert Fatigue Analyzer**: Measures alert frequency, acknowledgment time and actionability to find noisy alerts.
+  - **Why:** Noisy alerts get ignored until a real one is missed.
+  - **Stack:** Python, PagerDuty or Opsgenie API · **Difficulty:** 🔴 Advanced
+
+- **High-Cardinality Metric Finder**: Finds metrics whose label cardinality is exploding and estimates the storage cost.
+  - **Why:** Cardinality explosions crash metrics backends and budgets.
+  - **Stack:** Go, Prometheus TSDB stats · **Difficulty:** 🔴 Advanced

@@ -1,7 +1,7 @@
 # Awesome Dev Ideas
 
 [![License: CC0-1.0](https://img.shields.io/badge/license-CC0--1.0-blue.svg)](LICENSE)
-[![Ideas](https://img.shields.io/badge/ideas-681-brightgreen.svg)](#categories)
+[![Ideas](https://img.shields.io/badge/ideas-1152-brightgreen.svg)](#categories)
 [![Lint](https://github.com/SM260845/awesome-dev-ideas/actions/workflows/lint.yml/badge.svg)](https://github.com/SM260845/awesome-dev-ideas/actions/workflows/lint.yml)
 [![Links](https://github.com/SM260845/awesome-dev-ideas/actions/workflows/links.yml/badge.svg)](https://github.com/SM260845/awesome-dev-ideas/actions/workflows/links.yml)
 
@@ -30,20 +30,20 @@ The three core categories come first: **Dev Ideas**, **Project Inspiration** and
 <!-- counts:start -->
 | Category | Ideas | Scope |
 | --- | ---: | --- |
-| [Dev Ideas](ideas/dev-ideas.md) | 52 | Things you import, embed or apply inside a codebase: libraries, testing, code quality, API and data-layer patterns, frontend engineering, observability and docs. |
-| [Project Inspiration](ideas/project-inspiration.md) | 52 | Ambitious multi-week builds (platforms, engines, AI-native products, civic and science tools) worth a serious portfolio piece or a startup. |
-| [Fork Suggestions](ideas/fork-suggestions.md) | 57 | Real, licensed open-source repos worth forking, each with a specific change: a new niche, a missing feature, a port or a revival. |
-| [AI, Agents & MCP](ideas/ai-agents-mcp.md) | 52 | Agent harnesses, MCP servers, skills, memory, evals, local models and RAG. AI security lives in Security & Privacy. |
-| [Developer Tools & CLIs](ideas/developer-tools-clis.md) | 52 | Tools developers run: CLIs, TUIs, editor extensions, local environments, API clients, profilers and build tooling. |
-| [GitHub & Open Source Ecosystem](ideas/github-open-source.md) | 52 | GitHub Actions and Apps, maintainer and contributor tooling, repo health, community and OSS sustainability. |
-| [Micro-SaaS & Indie Apps](ideas/micro-saas-indie.md) | 52 | Small web or mobile products a solo developer can ship and charge for: developer SaaS, niche AI tools, local-business and vertical apps. |
-| [Automation & Workflows](ideas/automation-workflows.md) | 52 | Glue that connects existing services: personal and business automations, workflow engines, browser automation, bots and sync. |
-| [Data & Analytics](ideas/data-analytics.md) | 52 | Pipelines, data quality, BI, product analytics, datasets, visualisation, notebooks and observability data. |
-| [Security & Privacy](ideas/security-privacy.md) | 52 | AI and agent security, supply chain, secrets, AppSec, cloud hardening, privacy tools and detection. |
-| [Games & Creative Coding](ideas/games-creative-coding.md) | 52 | Games, game tooling, generative art, music and audio, interactive experiments, retro and creative tools. |
-| [Hardware, IoT & Self-hosting](ideas/hardware-iot-self-hosting.md) | 52 | Microcontrollers, home automation, local AI hardware, self-hosted services, networking, radio, backups and homelabs. |
-| [Learning Projects: Beginner to Advanced](ideas/learning-projects.md) | 52 | Classic builds with a twist, grouped by level, each chosen to teach a specific concept. |
-| **Total** | **681** | |
+| [Dev Ideas](ideas/dev-ideas.md) | 107 | Things you import, embed or apply inside a codebase: libraries, testing, code quality, API and data-layer patterns, frontend engineering, observability and docs. |
+| [Project Inspiration](ideas/project-inspiration.md) | 102 | Ambitious multi-week builds (platforms, engines, AI-native products, civic and science tools) worth a serious portfolio piece or a startup. |
+| [Fork Suggestions](ideas/fork-suggestions.md) | 73 | Real, licensed open-source repos worth forking, each with a specific change: a new niche, a missing feature, a port or a revival. |
+| [AI, Agents & MCP](ideas/ai-agents-mcp.md) | 74 | Agent harnesses, MCP servers, skills, memory, evals, local models and RAG. AI security lives in Security & Privacy. |
+| [Developer Tools & CLIs](ideas/developer-tools-clis.md) | 92 | Tools developers run: CLIs, TUIs, editor extensions, local environments, API clients, profilers and build tooling. |
+| [GitHub & Open Source Ecosystem](ideas/github-open-source.md) | 87 | GitHub Actions and Apps, maintainer and contributor tooling, repo health, community and OSS sustainability. |
+| [Micro-SaaS & Indie Apps](ideas/micro-saas-indie.md) | 97 | Small web or mobile products a solo developer can ship and charge for: developer SaaS, niche AI tools, local-business and vertical apps. |
+| [Automation & Workflows](ideas/automation-workflows.md) | 90 | Glue that connects existing services: personal and business automations, workflow engines, browser automation, bots and sync. |
+| [Data & Analytics](ideas/data-analytics.md) | 82 | Pipelines, data quality, BI, product analytics, datasets, visualisation, notebooks and observability data. |
+| [Security & Privacy](ideas/security-privacy.md) | 70 | AI and agent security, supply chain, secrets, AppSec, cloud hardening, privacy tools and detection. |
+| [Games & Creative Coding](ideas/games-creative-coding.md) | 100 | Games, game tooling, generative art, music and audio, interactive experiments, retro and creative tools. |
+| [Hardware, IoT & Self-hosting](ideas/hardware-iot-self-hosting.md) | 66 | Microcontrollers, home automation, local AI hardware, self-hosted services, networking, radio, backups and homelabs. |
+| [Learning Projects: Beginner to Advanced](ideas/learning-projects.md) | 112 | Classic builds with a twist, grouped by level, each chosen to teach a specific concept. |
+| **Total** | **1152** | |
 <!-- counts:end -->
 
 ## Entry format and legend
